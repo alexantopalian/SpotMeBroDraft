@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.wit.mobileapp.spotmebro.Main_Page">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/Goto_Matches_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="GotoMatches"
+            android:text="Go to your Matches"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="484dp" />
+
+        <Button
+            android:id="@+id/Goto_Profile_Editor_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="GotoEditor"
+            android:text="Go to your Profile Editor"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="484dp" />
+
+        <Button
+        android:id="@+id/Goto_Profile_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="GotoProfile"
+        android:text="Go to your Profile"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="484dp" />
+
+        <Button
+        android:id="@+id/Goto_Date_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="GotoDateAdder"
+        android:text="Select your availability"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="484dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome to SpotMeBro! from all the developers. Enjoy!"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/images" />
+        <Button
+            android:id="@+id/Logout_Button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="signOut"
+            android:text="Logout"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="484dp" />
+
+</LinearLayout>
+</android.support.constraint.ConstraintLayout>

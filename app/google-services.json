@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "737240148087",
+    "firebase_url": "https://spotmebro-82458.firebaseio.com",
+    "project_id": "spotmebro-82458",
+    "storage_bucket": "spotmebro-82458.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737240148087:android:4335997c63ce7083",
+        "android_client_info": {
+          "package_name": "edu.wit.mobileapp.spotmebro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737240148087-f3q5phvqb0462u0sm8l1tjr196c478j2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.wit.mobileapp.spotmebro",
+            "certificate_hash": "8304364f87ce74be31d0c4ac1385d8d56eaa7023"
+          }
+        },
+        {
+          "client_id": "737240148087-bsins6p7knenkl3vcq4gvr6h2t6j1clo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ97KTgPffP3X6LkvMVavsuy7dNxLNDNQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737240148087-bsins6p7knenkl3vcq4gvr6h2t6j1clo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.wit.mobileapp.spotmebro.Date_Adder">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="50"
+            android:orientation="horizontal">
+
+
+            <Spinner
+                android:id="@+id/Day_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:dropDownSelector="#aadaff"
+                android:ems="20"
+                android:entries="@array/Days_arrays"
+                android:prompt="@string/Day_string" />
+
+            <Spinner
+                android:id="@+id/Time_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:dropDownSelector="#aadaff"
+                android:ems="20"
+                android:entries="@array/Time_arrays"
+                android:prompt="@string/Time_string" />
+
+            <Spinner
+                android:id="@+id/AMPM_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:dropDownSelector="#aadaff"
+                android:ems="20"
+                android:entries="@array/AMPM_arrays"
+                android:prompt="@string/AMPM_string" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/Logout_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="signOut"
+                android:text="Logout"
+                tools:layout_editor_absoluteX="109dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/back_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="GoToMain"
+                android:text="Back" />
+
+            <Button
+                android:id="@+id/Enter_Datetime_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="Enter_in_Datetime"
+                android:text="Enter this Date and Time as your Availability" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

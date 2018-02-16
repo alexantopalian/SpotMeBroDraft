@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">SpotMeBro</string>
+    <string name="title_activity_sign_up">Sign_up</string>
+    <string name="gender_button">Gender</string>
+    <string name="security_input">Security Question</string>
+    <string name="answer_input">Answer</string>
+
+    //Drop down menu of Security Questions
+    <string name="security_prompt">Select a question...</string>
+    <string name="Day_string">Select a Day...</string>
+    <string name="Time_string">Select a Time...</string>
+    <string name="AMPM_string">AM or PM...</string>
+
+    <string name="Pref_gender_prompt">Preffered Gender to Match with...</string>
+    <string name="gender_prompt">Your Gender is...</string>
+    <string name="Style_prompt">Select a Style of Training...</string>
+
+    <string-array name="security_arrays">
+        <item>What street did you grow up on?</item>
+        <item>What was the name of your first pet?</item>
+        <item>What is your father's middle name?</item>
+        <item>What is your high school mascot?</item>
+        <item>What is the name of your best friend?</item>
+        <item>What is your favorite color?</item>
+    </string-array>
+
+    <string-array name="style_array">
+        <item>CrossFit</item>
+        <item>PowerLifting</item>
+        <item>Cardio</item>
+    </string-array>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Both</item>
+    </string-array>
+
+    <string-array name="my_gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="Days_arrays">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+    <string-array name="Time_arrays">
+        <item>12</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+
+    <string-array name="AMPM_arrays">
+        <item>AM</item>
+        <item>PM</item>
+    </string-array>
+</resources>
