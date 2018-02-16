@@ -11,7 +11,7 @@
     <string name="Time_string">Select a Time...</string>
     <string name="AMPM_string">AM or PM...</string>
 
-    <string name="Pref_gender_prompt">Preffered Gender to Match with...</string>
+    <string name="Pref_gender_prompt">Preferred Gender to Match with...</string>
     <string name="gender_prompt">Your Gender is...</string>
     <string name="Style_prompt">Select a Style of Training...</string>
 

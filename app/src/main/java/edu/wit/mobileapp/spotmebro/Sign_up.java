@@ -81,7 +81,7 @@ public class Sign_up extends AppCompatActivity
         mAnswer_input = (EditText) findViewById(R.id.Answer_input);
         mStyle_input = (Spinner) findViewById(R.id.Style_Input);
         mGender_input = (Spinner) findViewById(R.id.my_gender);
-        mPref_gender_input = (Spinner) findViewById(R.id.Preffered_Gender);
+        mPref_gender_input = (Spinner) findViewById(R.id.Preferred_Gender);
 
 
         addListenerOnButton();
@@ -127,7 +127,7 @@ public class Sign_up extends AppCompatActivity
         final String Answer = mAnswer_input.getText().toString();
         final String Style = mStyle_input.getSelectedItem().toString();
         final String Gender = mGender_input.getSelectedItem().toString();
-        final String Preffered_Gender = mPref_gender_input.getSelectedItem().toString();
+        final String Preferred_Gender = mPref_gender_input.getSelectedItem().toString();
 
 
 
@@ -185,7 +185,7 @@ public class Sign_up extends AppCompatActivity
                         myRef.child("Gender").setValue(Gender);
 
                         myPref = database.getReference("Users").child(user).child("Preferences");
-                        myPref.child("Preffered Gender").setValue(Preffered_Gender);
+                        myPref.child("Preferred Gender").setValue(Preferred_Gender);
                         myPref.child("Style").setValue(Style);
 
 
