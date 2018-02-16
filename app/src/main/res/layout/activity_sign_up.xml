@@ -30,7 +30,7 @@
 
             <EditText
                 android:id="@+id/Email_input"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_weight="50"
@@ -52,9 +52,95 @@
                 android:layout_weight="50"
                 android:text="Password:" />
 
-            <EditText
-                android:id="@+id/Password_input"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleDrawable="@drawable/password_toggle"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorAccent">
+                <EditText
+                    android:id="@+id/Password_input"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="50"
+                    android:ems="10"
+                    android:text="" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="50"
+                android:text="Password Verification:" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleDrawable="@drawable/password_toggle"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorAccent">
+                <EditText
+                    android:id="@+id/Verify_input"
+                    android:layout_width="215dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="50"
+                    android:ems="10"
+                    android:text="" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="50"
+                android:text="Security Question:" />
+
+            <Spinner
+                android:id="@+id/Security_input"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:layout_weight="50"
+                android:dropDownSelector="#aadaff"
+                android:ems="10"
+                android:entries="@array/security_arrays"
+                android:prompt="@string/security_prompt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="50"
+                android:text="Answer" />
+
+            <EditText
+                android:id="@+id/Answer_input"
+                android:layout_width="121dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginTop="8dp"
@@ -62,101 +148,29 @@
                 android:ems="10"
                 android:text="" />
         </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_weight="50"
-            android:text="Password Verification:" />
-
-        <EditText
-            android:id="@+id/Verify_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="8dp"
-            android:layout_weight="50"
-            android:ems="10"
-            android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_weight="50"
-            android:text="Security Question:" />
-
-        <Spinner
-            android:id="@+id/Security_input"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="8dp"
-            android:layout_weight="50"
-            android:dropDownSelector="#aadaff"
-            android:ems="10"
-            android:entries="@array/security_arrays"
-            android:prompt="@string/security_prompt" />
-    </LinearLayout>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:text="Your Gender:" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/my_gender"
+                android:layout_width="139dp"
+                android:layout_height="43dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:layout_weight="50"
+                android:dropDownSelector="#aadaff"
+                android:ems="10"
+                android:entries="@array/my_gender_array"
+                android:prompt="@string/gender_prompt" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_weight="50"
-            android:text="Answer" />
-
-        <EditText
-            android:id="@+id/Answer_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="8dp"
-            android:layout_weight="50"
-            android:ems="10"
-            android:text="" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Your Gender:" />
-
-        <Spinner
-            android:id="@+id/my_gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="8dp"
-            android:layout_weight="50"
-            android:dropDownSelector="#aadaff"
-            android:ems="10"
-            android:entries="@array/my_gender_array"
-            android:prompt="@string/gender_prompt" />
-
-    </LinearLayout>
+        </LinearLayout>
 
 
 
@@ -167,15 +181,15 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="Style" />
 
             <Spinner
                 android:id="@+id/Style_Input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="155dp"
+                android:layout_height="43dp"
                 android:layout_gravity="right"
                 android:layout_marginTop="8dp"
                 android:layout_weight="50"
@@ -193,17 +207,16 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
+                android:layout_width="34dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="left"
                 android:layout_weight="50"
-                android:text="Preffered Gender"
-                 />
+                android:text="Preferred Gender" />
 
             <Spinner
-                android:id="@+id/Preffered_Gender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/Preferred_Gender"
+                android:layout_width="145dp"
+                android:layout_height="43dp"
                 android:layout_gravity="right"
                 android:layout_marginTop="8dp"
                 android:layout_weight="50"
@@ -211,15 +224,8 @@
                 android:ems="10"
                 android:entries="@array/gender_array"
                 android:prompt="@string/Pref_gender_prompt" />
-
-
-
         </LinearLayout>
-
-
-
     </LinearLayout>
-
 
     <Button
         android:id="@+id/Submit_button"
@@ -232,6 +238,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
 
 </android.support.constraint.ConstraintLayout>

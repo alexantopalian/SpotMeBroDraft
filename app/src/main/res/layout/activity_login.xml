@@ -13,21 +13,27 @@
             android:orientation="vertical">
 
 
-        <EditText
-            android:id="@+id/User_Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email."
-            android:textSize="22sp" />
-
-        <EditText
-            android:id="@+id/User_Password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textSize="22sp"/>
+                <EditText
+                    android:id="@+id/User_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email."
+                    android:textSize="22sp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:passwordToggleDrawable="@drawable/password_toggle"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/colorAccent">
+                        <EditText
+                            android:id="@+id/User_Password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:textSize="22sp"/>
+                </android.support.design.widget.TextInputLayout>
 
                 <Button
                     android:id="@+id/Login_button"
@@ -58,8 +64,5 @@
                     tools:layout_editor_absoluteY="127dp" />
 
         </LinearLayout>
-
-
-
 
 </android.support.constraint.ConstraintLayout>
