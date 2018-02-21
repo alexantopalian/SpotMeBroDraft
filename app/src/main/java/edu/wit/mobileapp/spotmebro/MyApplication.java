@@ -9,9 +9,9 @@ import android.app.Application;
 public class MyApplication extends Application {
 
     //Preferences
-    public static String Global_Preffered_Gender = "";
-    public static String Global_Gender = "";
-    public static String Global_Style = "";
+    public static String Global_Preffered_Gender = "x";
+    public static String Global_Gender = "x";
+    public static String Global_Style = "x";
 
     private static MyApplication singleton;
 

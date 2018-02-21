@@ -50,14 +50,11 @@ public class Main_Page extends AppCompatActivity
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
 
             }
         });
-
-
-
-
     }
 
     public void signOut(View view)
@@ -65,19 +62,11 @@ public class Main_Page extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         mAuth.signOut();
         startActivity(new Intent(Main_Page.this, Login.class));
-
     }
 
     public void GotoMatches(View view)
     {
-
-
-
         startActivity(new Intent(Main_Page.this, Matches_Page.class));
-
-
-
-
     }
 
     public void GotoEditor(View view)

@@ -82,8 +82,7 @@ public class User_Profile extends AppCompatActivity
 
                     }
 
-                    String value = iterator.next().getValue(String.class);
-                    entries.add(value);
+
                 }
                 ArrayAdapter<String> arrayAdapter;
                 arrayAdapter = new ArrayAdapter<String>(User_Profile.this, android.R.layout.simple_list_item_1, entries);
