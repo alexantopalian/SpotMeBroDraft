@@ -36,7 +36,6 @@ public class Main_Page extends AppCompatActivity
         setContentView(R.layout.activity_main__page);
         mAuth = FirebaseAuth.getInstance();
 
-
         String user = mAuth.getCurrentUser().getUid().toString();
         myRef = FirebaseDatabase.getInstance().getReference("Users").child(user);
         // set listener to grab users preferences.
@@ -47,7 +46,7 @@ public class Main_Page extends AppCompatActivity
             {
                 MyApplication.Global_Gender = dataSnapshot.child("Gender").getValue().toString();
                 MyApplication.Global_Style = dataSnapshot.child("Preferences").child("Style").getValue().toString();
-                MyApplication.Global_Preffered_Gender = dataSnapshot.child("Preferences").child("Preffered Gender").getValue().toString();
+                MyApplication.Global_Preffered_Gender = dataSnapshot.child("Preferences").child("Preferred Gender").getValue().toString();
             }
 
             @Override
