@@ -28,7 +28,8 @@
         <activity android:name=".User_Profile" />
         <activity android:name=".Matches_Profile" />
         <activity android:name=".HourMatches" />
-        <activity android:name=".Profile_Preference_Editor"></activity>
+        <activity android:name=".Profile_Preference_Editor" />
+        <activity android:name=".Forgot"></activity>
     </application>
 
 </manifest>

@@ -71,7 +71,7 @@ public class Main_Page extends AppCompatActivity
 
     public void GotoEditor(View view)
     {
-        //startActivity(new Intent(Main_Page.this, Matches_Page.class));
+        startActivity(new Intent(Main_Page.this, Profile_Preference_Editor.class));
 
     }
 

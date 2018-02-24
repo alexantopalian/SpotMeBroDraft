@@ -17,9 +17,13 @@
             android:id="@+id/newListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="56dp" />
+            android:layout_weight="50" />
+
+        <ListView
+            android:id="@+id/oldListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50" />
 
 
         <LinearLayout

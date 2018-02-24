@@ -112,4 +112,10 @@ public class Login extends AppCompatActivity
         Intent intent = new Intent(Login.this,Sign_up.class);
         startActivity(intent);
     }
+
+    public void Forgot_Button_Clicked(View view) {
+        Intent intent = new Intent(Login.this,Forgot.class);
+        startActivity(intent);
+
+    }
 }
