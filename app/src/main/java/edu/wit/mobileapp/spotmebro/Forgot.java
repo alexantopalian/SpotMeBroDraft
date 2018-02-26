@@ -58,7 +58,7 @@ public class Forgot extends AppCompatActivity {
                 while (iterator.hasNext()) {
                     DataSnapshot s = iterator.next();
                     String value = s.child("Email").getValue().toString().toLowerCase();
-                    if((value +"\n") == Email)
+                    if(value.compareToIgnoreCase(Email) == 0 )
                     {
                         msecques.setText(s.child("Security").getValue().toString());
                         answer = s.child("Answer").getValue().toString().toLowerCase();
@@ -78,7 +78,7 @@ public class Forgot extends AppCompatActivity {
     {
         final String Email = mEmail_input.getText().toString();
         final String answergiven = mAnswer_input.getText().toString().toLowerCase();
-        if(answergiven == answer)
+        if(answergiven.compareToIgnoreCase(answer) == 0)
         {
             mAuth.getInstance().sendPasswordResetEmail(Email);
         }
