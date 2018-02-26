@@ -71,6 +71,7 @@ public class User_Profile extends AppCompatActivity
                 Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
                 while(iterator.hasNext())
                 {
+
                     try
                     {
                         String value = iterator.next().getValue(String.class);
@@ -81,8 +82,6 @@ public class User_Profile extends AppCompatActivity
                         Log.v(TAG, "preferences=" + e);
 
                     }
-
-
                 }
                 ArrayAdapter<String> arrayAdapter;
                 arrayAdapter = new ArrayAdapter<String>(User_Profile.this, android.R.layout.simple_list_item_1, entries);

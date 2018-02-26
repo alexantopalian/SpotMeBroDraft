@@ -36,6 +36,7 @@ public class Main_Page extends AppCompatActivity
         setContentView(R.layout.activity_main__page);
         mAuth = FirebaseAuth.getInstance();
 
+
         String user = mAuth.getCurrentUser().getUid().toString();
         myRef = FirebaseDatabase.getInstance().getReference("Users").child(user);
         // set listener to grab users preferences.
@@ -71,7 +72,7 @@ public class Main_Page extends AppCompatActivity
 
     public void GotoEditor(View view)
     {
-        startActivity(new Intent(Main_Page.this, Profile_Preference_Editor.class));
+        startActivity(new Intent(Main_Page.this, PreferenceEditor.class));
 
     }
 
