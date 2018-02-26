@@ -185,7 +185,7 @@ public class Sign_up extends AppCompatActivity
                         myRef.child("Gender").setValue(Gender);
 
                         myPref = database.getReference("Users").child(user).child("Preferences");
-                        myPref.child("Preferred Gender").setValue(Preferred_Gender);
+                        myPref.child("Preferred_Gender").setValue(Preferred_Gender);
                         myPref.child("Style").setValue(Style);
 
 

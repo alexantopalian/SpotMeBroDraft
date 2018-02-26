@@ -46,7 +46,7 @@ public class Main_Page extends AppCompatActivity
             {
                 MyApplication.Global_Gender = dataSnapshot.child("Gender").getValue().toString();
                 MyApplication.Global_Style = dataSnapshot.child("Preferences").child("Style").getValue().toString();
-                MyApplication.Global_Preffered_Gender = dataSnapshot.child("Preferences").child("Preferred Gender").getValue().toString();
+                MyApplication.Global_Preffered_Gender = dataSnapshot.child("Preferences").child("Preferred_Gender").getValue().toString();
             }
 
             @Override
