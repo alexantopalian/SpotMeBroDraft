@@ -18,7 +18,7 @@ public class Profile_Preference_Editor extends AppCompatActivity {
         setContentView(R.layout.activity_profile__preference__editor);
 
         //Returns back to the Main Page
-        Button back_btn = (Button)findViewById(R.id.back);
+        Button back_btn = findViewById(R.id.back);
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,10 +28,10 @@ public class Profile_Preference_Editor extends AppCompatActivity {
             }
         });
 
-        ImageButton rightArrow = (ImageButton)findViewById(R.id.right_arrow);
-        ImageButton leftArrow = (ImageButton)findViewById(R.id.left_arrow);
+        ImageButton rightArrow = findViewById(R.id.right_arrow);
+        ImageButton leftArrow = findViewById(R.id.left_arrow);
 
-        final ViewSwitcher switchView = (ViewSwitcher)findViewById(R.id.profile_preference_flipper);
+        final ViewSwitcher switchView = findViewById(R.id.profile_preference_flipper);
 
         Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
         Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);

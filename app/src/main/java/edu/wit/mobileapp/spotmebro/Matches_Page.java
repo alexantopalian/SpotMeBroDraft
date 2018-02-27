@@ -65,7 +65,7 @@ public class Matches_Page extends AppCompatActivity
 
         mAuth = FirebaseAuth.getInstance();
         String UID = mAuth.getCurrentUser().getUid();
-        listview = (ListView) findViewById(R.id.newListView);
+        listview = findViewById(R.id.newListView);
 
         myRefAvailability = FirebaseDatabase.getInstance().getReference("Users").child(UID).child("Availability");
         myRefAvailability.addValueEventListener(new ValueEventListener() {

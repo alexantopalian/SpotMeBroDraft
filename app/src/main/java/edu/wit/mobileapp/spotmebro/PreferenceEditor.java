@@ -29,8 +29,8 @@ public class PreferenceEditor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preference_editor);
-        mStyle_input = (Spinner) findViewById(R.id.Style_Input);
-        mPref_gender_input = (Spinner) findViewById(R.id.Preferred_Gender);
+        mStyle_input = findViewById(R.id.Style_Input);
+        mPref_gender_input = findViewById(R.id.Preferred_Gender);
 
         mAuth = FirebaseAuth.getInstance();
         availabilities = " ";
@@ -68,8 +68,8 @@ public class PreferenceEditor extends AppCompatActivity {
 
     public void submit_changes(View view)
     {
-        mStyle_input = (Spinner) findViewById(R.id.Style_Input);
-        mPref_gender_input = (Spinner) findViewById(R.id.Preferred_Gender);
+        mStyle_input = findViewById(R.id.Style_Input);
+        mPref_gender_input = findViewById(R.id.Preferred_Gender);
         mAuth = FirebaseAuth.getInstance();
         String user = mAuth.getCurrentUser().getUid().toString();
 

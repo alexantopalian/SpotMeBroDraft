@@ -133,7 +133,7 @@ public class HourMatches extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshots)
                 {
-                    listview = (ListView) findViewById(R.id.newListView);
+                    listview = findViewById(R.id.newListView);
 
 
                     for (DataSnapshot ds : dataSnapshots.getChildren())

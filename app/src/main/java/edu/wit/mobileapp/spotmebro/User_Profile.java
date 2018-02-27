@@ -59,7 +59,7 @@ public class User_Profile extends AppCompatActivity
 
         myRef = FirebaseDatabase.getInstance().getReference("Users");
         myRefUsers = myRef.child(UID);
-        listview = (ListView) findViewById(R.id.newListView);
+        listview = findViewById(R.id.newListView);
 
 
         myRefUsers.addValueEventListener(new ValueEventListener() {

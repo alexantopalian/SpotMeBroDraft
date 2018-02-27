@@ -74,14 +74,14 @@ public class Sign_up extends AppCompatActivity
         //message = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        mEmail_input = (EditText) findViewById(R.id.Email_input);
-        mPassword_input = (EditText) findViewById(R.id.Password_input);
-        mVerify_input = (EditText) findViewById(R.id.Verify_input);
-        mSecurity_input = (Spinner) findViewById(R.id.Security_input);
-        mAnswer_input = (EditText) findViewById(R.id.Answer_input);
-        mStyle_input = (Spinner) findViewById(R.id.Style_Input);
-        mGender_input = (Spinner) findViewById(R.id.my_gender);
-        mPref_gender_input = (Spinner) findViewById(R.id.Preferred_Gender);
+        mEmail_input = findViewById(R.id.Email_input);
+        mPassword_input = findViewById(R.id.Password_input);
+        mVerify_input = findViewById(R.id.Verify_input);
+        mSecurity_input = findViewById(R.id.Security_input);
+        mAnswer_input = findViewById(R.id.Answer_input);
+        mStyle_input = findViewById(R.id.Style_Input);
+        mGender_input = findViewById(R.id.my_gender);
+        mPref_gender_input = findViewById(R.id.Preferred_Gender);
 
 
         addListenerOnButton();
@@ -91,7 +91,7 @@ public class Sign_up extends AppCompatActivity
         // Buttons:
 
 
-        mSubmit_button = (Button) findViewById(R.id.Submit_button);
+        mSubmit_button = findViewById(R.id.Submit_button);
         mSubmit_button.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -111,11 +111,11 @@ public class Sign_up extends AppCompatActivity
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     public void addListenerSecurityItemSelection(){
-        security1 = (Spinner) findViewById(R.id.Security_input);
+        security1 = findViewById(R.id.Security_input);
     }
 
     public void addListenerOnButton(){
-        security1 = (Spinner) findViewById(R.id.Security_input);
+        security1 = findViewById(R.id.Security_input);
     }
 
     private void userRegister()

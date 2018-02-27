@@ -36,10 +36,10 @@ public class Forgot extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot);
-        mEmail_input = (EditText) findViewById(R.id.Email_input);
-        msecques = (TextView) findViewById(R.id.SecQuesView);
+        mEmail_input = findViewById(R.id.Email_input);
+        msecques = findViewById(R.id.SecQuesView);
         answer = "  ";
-        mAnswer_input = (EditText) findViewById(R.id.Answer_input);
+        mAnswer_input = findViewById(R.id.Answer_input);
 
     }
 
@@ -80,7 +80,7 @@ public class Forgot extends AppCompatActivity {
         final String answergiven = mAnswer_input.getText().toString().toLowerCase();
         if(answergiven.compareToIgnoreCase(answer) == 0)
         {
-            mAuth.getInstance().sendPasswordResetEmail(Email);
+            FirebaseAuth.getInstance().sendPasswordResetEmail(Email);
         }
         else
         {
