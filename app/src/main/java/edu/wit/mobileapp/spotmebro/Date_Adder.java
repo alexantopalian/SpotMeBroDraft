@@ -97,6 +97,7 @@ public class Date_Adder extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
+                AllTimes.clear();
                 try
                 {
                     temp = dataSnapshot.getValue().toString();
@@ -184,7 +185,11 @@ public class Date_Adder extends AppCompatActivity {
 
                             myRef = FirebaseDatabase.getInstance().getReference("").child(Day).child(Time).child(UID);
                             myRef.removeValue();
-                            temp.replace(("," + timeset), "");
+
+                            temp = temp.replace(("," + timeset), "");
+                            myRef = FirebaseDatabase.getInstance().getReference("Users").child(UID).child("Availability");
+                            myRef.setValue(temp);
+
 
                         }
 
