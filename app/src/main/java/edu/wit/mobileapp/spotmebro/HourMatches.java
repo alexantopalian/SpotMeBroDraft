@@ -29,10 +29,7 @@ public class HourMatches extends AppCompatActivity {
         private DatabaseReference myTime;
         private DatabaseReference myRefUsers;
         private static final String TAG = "MyActivity";
-
         private RecyclerView recyclerview;
-
-
         private ListView listview;
         private ArrayList<String> entries;
         private ArrayList<String> AllNames;

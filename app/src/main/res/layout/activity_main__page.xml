@@ -51,12 +51,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome to SpotMeBro! from all the developers. Enjoy!"/>
+            android:text="Welcome to SpotMeBro! from all the developers. Enjoy!"
+            />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/images" />
+
         <Button
             android:id="@+id/Logout_Button2"
             android:layout_width="match_parent"

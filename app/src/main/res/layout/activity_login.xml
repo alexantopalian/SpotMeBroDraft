@@ -72,7 +72,6 @@
                     android:background="@drawable/download"
                     tools:layout_editor_absoluteX="70dp"
                     tools:layout_editor_absoluteY="127dp" />
-
         </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
