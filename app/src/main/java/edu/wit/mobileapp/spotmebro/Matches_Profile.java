@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -24,6 +26,8 @@ public class Matches_Profile extends AppCompatActivity {
     private DatabaseReference myRef;
     private DatabaseReference myRefUsers;
     private  String UID;
+
+    private static final String TAG = "MyActivity";
 
 
     private ListView listview;
@@ -63,8 +67,16 @@ public class Matches_Profile extends AppCompatActivity {
                 Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
                 while(iterator.hasNext())
                 {
-                    String value = iterator.next().getValue(String.class);
-                    entries.add(value);
+                    try
+                    {
+                        String value = iterator.next().getValue(String.class);
+                        entries.add(value);
+                    }
+                    catch (DatabaseException e)
+                    {
+                        Log.v(TAG, "preferences=" + e);
+
+                    }
                 }
                 ArrayAdapter<String> arrayAdapter;
                 arrayAdapter = new ArrayAdapter<String>(Matches_Profile.this, android.R.layout.simple_list_item_1, entries);
