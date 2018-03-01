@@ -1,5 +1,6 @@
 package edu.wit.mobileapp.spotmebro;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -81,6 +82,7 @@ public class Forgot extends AppCompatActivity {
         if(answergiven.compareToIgnoreCase(answer) == 0)
         {
             FirebaseAuth.getInstance().sendPasswordResetEmail(Email);
+            startActivity(new Intent(Forgot.this, Login.class));
         }
         else
         {
