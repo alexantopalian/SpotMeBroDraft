@@ -56,10 +56,6 @@ public class HourMatches extends AppCompatActivity {
                 available = extras.getString("timeset");
             }
 
-
-
-
-
             String [] parts = available.split(" ");
             String Day = parts[0];
             String Time = parts[1];
@@ -68,14 +64,15 @@ public class HourMatches extends AppCompatActivity {
             String finaltime = "0";
             String time = Time;
 
-            if (AMPM == "AM") {
+            if (AMPM.equalsIgnoreCase("AM")) {
                 if (time == "12")
                 {
                     Time = "0";
                 }
+                finaltime = Time;
 
             }
-            else if (AMPM == "PM")
+            else if (AMPM.equalsIgnoreCase("PM"))
             {
                 switch (time)
                 {
@@ -119,6 +116,7 @@ public class HourMatches extends AppCompatActivity {
                 }
                 Time = finaltime;
             }
+            Time = finaltime;
 
             AllNames = new ArrayList<>();
             AllUIDs = new ArrayList<>();
@@ -135,18 +133,18 @@ public class HourMatches extends AppCompatActivity {
 
                     for (DataSnapshot ds : dataSnapshots.getChildren())
                     {
-                        try
-                        {
-                            String Style = ds.child("Preferences").child("Style").getValue().toString();
+                        //try
+                        //{
+                            String Style = ds.child("Style").getValue().toString();
                             String Gender = ds.child("Gender").getValue().toString();
-                            if(( MyApplication.Global_Style == Style )&& ((MyApplication.Global_Preffered_Gender == Gender)))
+                            if(( MyApplication.Global_Style.equalsIgnoreCase(Style))&& ((MyApplication.Global_Preffered_Gender.equalsIgnoreCase(Gender))))
                             {
                                 String name = ds.child("Email").getValue().toString();
                                 String UIDs = ds.getKey();
                                 AllNames.add(name);
                                 AllUIDs.add(UIDs);
                             }
-                            else if ( (MyApplication.Global_Preffered_Gender == "Both") && ( MyApplication.Global_Style == Style ))
+                            else if ( (MyApplication.Global_Preffered_Gender.equalsIgnoreCase("Both")) && ( MyApplication.Global_Style.equalsIgnoreCase(Style )))
                             {
                                 String name = ds.child("Email").getValue().toString();
                                 String UIDs = ds.getKey();
@@ -154,11 +152,11 @@ public class HourMatches extends AppCompatActivity {
                                 AllUIDs.add(UIDs);
                             }
 
-                        }
-                        catch (NullPointerException i)
-                        {
-                            Log.v(TAG, "No values =" + i);
-                        }
+                        //}
+                        //catch (NullPointerException i)
+                        //{
+                        //    Log.v(TAG, "No values =" + i);
+                        //}
 
                     }
                     if (AllNames.isEmpty())
@@ -178,7 +176,7 @@ public class HourMatches extends AppCompatActivity {
                         {
 
                             String Email_of_User = (listview.getItemAtPosition(position)).toString();
-                            if ( Email_of_User == "No Matches")
+                            if ( Email_of_User.equalsIgnoreCase("No Matches"))
                             {
 
                             }
@@ -186,7 +184,7 @@ public class HourMatches extends AppCompatActivity {
                             {
                                 int index = 0;
                                 for (int i = 0; i < AllNames.size(); i++) {
-                                    if (Email_of_User == AllNames.get(i)) {
+                                    if (Email_of_User.equalsIgnoreCase(AllNames.get(i))) {
                                         index = i;
                                     }
                                 }

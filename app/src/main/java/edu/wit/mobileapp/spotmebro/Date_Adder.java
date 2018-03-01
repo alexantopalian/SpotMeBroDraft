@@ -134,12 +134,13 @@ public class Date_Adder extends AppCompatActivity {
                             String finaltime = "0";
                             String time = Time;
 
-                            if (AMPM == "AM") {
+                            if (AMPM.equalsIgnoreCase("AM")) {
                                 if (time == "12") {
                                     Time = "0";
                                 }
+                                finaltime=Time;
 
-                            } else if (AMPM == "PM") {
+                            } else if (AMPM.equalsIgnoreCase("PM")) {
                                 switch (time) {
                                     case "1":
                                         finaltime = "13";
@@ -181,6 +182,7 @@ public class Date_Adder extends AppCompatActivity {
                                 }
                                 Time = finaltime;
                             }
+                            Time = finaltime;
 
 
                             myRef = FirebaseDatabase.getInstance().getReference("").child(Day).child(Time).child(UID);
@@ -256,14 +258,16 @@ public class Date_Adder extends AppCompatActivity {
         String finaltime = "0";
         String time = Time;
 
-        if (AMPM == "AM") {
+        if (AMPM.equalsIgnoreCase("AM"))
+        {
             if (time == "12")
             {
-                Time = "0";
+                finaltime = "0";
             }
+            finaltime = Time;
 
         }
-        else if (AMPM == "PM")
+        else if (AMPM.equalsIgnoreCase("PM"))
         {
             switch (time)
             {
@@ -307,20 +311,25 @@ public class Date_Adder extends AppCompatActivity {
             }
             Time = finaltime;
         }
-
+        else
+        {
+            finaltime = Time;
+        }
+        Time = finaltime;
+        final String FinalTime = Time;
 
         mAuth = FirebaseAuth.getInstance();
         String user = mAuth.getCurrentUser().getUid();
         final String email = mAuth.getCurrentUser().getEmail().toLowerCase();
 
 
-        myRef = database.getReference(Day).child(Time);
+        myRef = database.getReference(Day).child(FinalTime);
         mavailability = myRef.child(user);
         myxx = database.getReference("Users").child(user);
         myUser = myxx.child("Availability");
         // just want the value at availability
 
-        final String finalTime = Time;
+
         myUser.addValueEventListener(new ValueEventListener()
         {
             @Override
@@ -338,7 +347,7 @@ public class Date_Adder extends AppCompatActivity {
 
                 }
 
-                if (availabilities.contains("," + Day + " " + finalTime + " " + AMPM + " "))
+                if (availabilities.contains("," + Day + " " + FinalTime + " " + AMPM + " "))
                 {
                     Toast.makeText(Date_Adder.this, "Already an added availability", Toast.LENGTH_LONG).show();
                 }
@@ -347,7 +356,7 @@ public class Date_Adder extends AppCompatActivity {
                     mavailability.child("Email").setValue(email);
                     mavailability.child("Gender").setValue(MyApplication.Global_Gender);
                     mavailability.child("Style").setValue(MyApplication.Global_Style);
-                    availabilities = availabilities + "," + Day + " " + finalTime + " " + AMPM + " ";
+                    availabilities = availabilities + "," + Day + " " + FinalTime + " " + AMPM + " ";
                     myUser.setValue(availabilities);
                 }
             }
