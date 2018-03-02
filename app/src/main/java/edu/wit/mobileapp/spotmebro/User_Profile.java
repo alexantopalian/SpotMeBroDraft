@@ -108,7 +108,7 @@ public class User_Profile extends AppCompatActivity
 
     public void GoToMain(View view)
     {
-        startActivity(new Intent(User_Profile.this, Main_Page.class));
+        startActivity(new Intent(User_Profile.this, Main_Page2.class));
 
     }
 

@@ -30,7 +30,11 @@
         <activity android:name=".HourMatches" />
         <activity android:name=".Profile_Preference_Editor" />
         <activity android:name=".Forgot" />
-        <activity android:name=".PreferenceEditor"></activity>
+        <activity android:name=".PreferenceEditor" />
+        <activity
+            android:name=".Main_Page2"
+            android:label="@string/title_activity_main__page2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

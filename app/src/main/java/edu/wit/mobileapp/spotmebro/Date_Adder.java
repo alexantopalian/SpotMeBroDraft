@@ -242,7 +242,7 @@ public class Date_Adder extends AppCompatActivity {
     }
 
     public void GoToMain(View view) {
-        startActivity(new Intent(Date_Adder.this, Main_Page.class));
+        startActivity(new Intent(Date_Adder.this, Main_Page2.class));
     }
 
 

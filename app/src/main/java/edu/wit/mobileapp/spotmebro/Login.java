@@ -63,7 +63,7 @@ public class Login extends AppCompatActivity
                 if (firebaseAuth.getCurrentUser()!=null)
                 {
 
-                    Intent intent = new Intent(Login.this,Main_Page.class);
+                    Intent intent = new Intent(Login.this,Main_Page2.class);
                     startActivity(intent);
                 }
 

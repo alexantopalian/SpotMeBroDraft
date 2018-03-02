@@ -230,7 +230,7 @@ public class HourMatches extends AppCompatActivity {
 
     public void GoToMain(View view)
     {
-        startActivity(new Intent(HourMatches.this, Main_Page.class));
+        startActivity(new Intent(HourMatches.this, Main_Page2.class));
 
     }
 

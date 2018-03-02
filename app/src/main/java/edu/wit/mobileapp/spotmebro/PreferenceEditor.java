@@ -169,6 +169,6 @@ public class PreferenceEditor extends AppCompatActivity {
 
     public void gotoBacktoMain(View view)
     {
-        startActivity(new Intent(PreferenceEditor.this, Main_Page.class));
+        startActivity(new Intent(PreferenceEditor.this, Main_Page2.class));
     }
 }

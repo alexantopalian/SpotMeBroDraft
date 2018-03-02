@@ -135,7 +135,7 @@ public class Matches_Page extends AppCompatActivity
 
     public void GoToMain(View view)
     {
-        startActivity(new Intent(Matches_Page.this, Main_Page.class));
+        startActivity(new Intent(Matches_Page.this, Main_Page2.class));
 
     }
 

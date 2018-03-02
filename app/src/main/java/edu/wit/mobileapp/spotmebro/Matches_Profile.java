@@ -103,7 +103,7 @@ public class Matches_Profile extends AppCompatActivity {
 
     public void GoToMain(View view)
     {
-        startActivity(new Intent(Matches_Profile.this, Main_Page.class));
+        startActivity(new Intent(Matches_Profile.this, Main_Page2.class));
 
     }
 
