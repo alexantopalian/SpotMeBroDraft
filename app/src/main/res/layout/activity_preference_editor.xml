@@ -9,22 +9,60 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/spotmebroflex">
 
-        <Spinner
-            android:id="@+id/Preferred_Gender"
+        <TextView
+            android:paddingTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="32dp"
+            android:textColor="@color/colorAccent"
+            android:layout_gravity="center"
+            android:text="Update your preferences!"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:text="The gender you would prefer to match to:"/>
+
+
+            <Spinner
+                android:textColor="@color/colorAccent"
+                android:id="@+id/Preferred_Gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:layout_weight="50"
+                android:dropDownSelector="#aadaff"
+                android:ems="10"
+                android:entries="@array/gender_array"
+                android:prompt="@string/Pref_gender_prompt" />
+
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="8dp"
-            android:layout_weight="50"
-            android:dropDownSelector="#aadaff"
-            android:ems="10"
-            android:entries="@array/gender_array"
-            android:prompt="@string/Pref_gender_prompt" />
-
+            android:textColor="@color/colorAccent"
+            android:text="The style you would prefer to match to:"/>
 
         <Spinner
+            android:textColor="@color/colorAccent"
             android:id="@+id/Style_Input"
             android:layout_width="155dp"
             android:layout_height="43dp"
@@ -36,12 +74,15 @@
             android:entries="@array/style_array"
             android:prompt="@string/Style_prompt" />
 
+    </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/Back_button"
+                android:textColor="@color/colorAccent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
@@ -55,6 +96,7 @@
 
             <Button
                 android:id="@+id/Submit_button"
+                android:textColor="@color/colorAccent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
