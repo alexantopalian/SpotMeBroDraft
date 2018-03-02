@@ -25,9 +25,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="  Two in three adults are considered either overweight or worse, obese. SpotMeBro originated from the lack of an available solution to address the problem of matching skill and availability for weightlifting and exercise partners. "></TextView>
+            android:text=" According to the National Institute of Diabetes and Digestive and Kidney Diseases, two in three adults are considered either overweight or worse, obese. SpotMeBro originated from the lack of an available solution to address the problem of matching skill and availability for weightlifting and exercise partners. "></TextView>
 
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mib2"
+            />
 
 
     </LinearLayout>

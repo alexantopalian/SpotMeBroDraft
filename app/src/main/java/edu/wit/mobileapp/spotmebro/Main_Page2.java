@@ -69,6 +69,8 @@ public class Main_Page2 extends AppCompatActivity
 
         String tempUser = "";
         final String user = mAuth.getCurrentUser().getUid().toString();
+        //mUidNav = findViewById(R.id.UIDNavTex);
+        //mUidNav.append(user);
 
 
         //here we could add a gender based image and other be like a tank...
@@ -83,8 +85,7 @@ public class Main_Page2 extends AppCompatActivity
                 MyApplication.Global_Gender = dataSnapshot.child("Gender").getValue().toString();
                 MyApplication.Global_Style = dataSnapshot.child("Preferences").child("Style").getValue().toString();
                 MyApplication.Global_Preffered_Gender = dataSnapshot.child("Preferences").child("Preferred_Gender").getValue().toString();
-                mUidNav = findViewById(R.id.UIDNavTex);
-                mUidNav.append(user);
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError)
@@ -146,7 +147,7 @@ public class Main_Page2 extends AppCompatActivity
             startActivity(new Intent(Main_Page2.this, Date_Adder.class));
         } else if (id == R.id.ContactUs)
         {
-            //startActivity(new Intent(Main_Page2.this, ContactUs.class));
+            startActivity(new Intent(Main_Page2.this, ContactUs.class));
         } else if (id == R.id.SignOut)
         {
             mAuth = FirebaseAuth.getInstance();
