@@ -20,11 +20,15 @@
             android:id="@+id/DateAdder"
             android:icon="@drawable/spotmebrodatetime"
             android:title="Enter Your Availability" />
+        <item
+            android:id="@+id/Conversations"
+            android:icon="@drawable/spotmebrodatetime"
+            android:title="Go to your Converations!" />
     </group>
 
     <item android:title="Communicate">
         <menu>
-            <item
+            <itemz
                 android:id="@+id/ContactUs"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Contact Us" />

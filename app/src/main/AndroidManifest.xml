@@ -35,7 +35,9 @@
             android:name=".Main_Page2"
             android:label="@string/title_activity_main__page2"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ContactUs"></activity>
+        <activity android:name=".ContactUs" />
+        <activity android:name=".Conversations" />
+        <activity android:name=".Messages"></activity>
     </application>
 
 </manifest>

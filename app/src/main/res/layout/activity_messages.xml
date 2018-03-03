@@ -4,26 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.wit.mobileapp.spotmebro.Matches_Profile">
+    tools:context="edu.wit.mobileapp.spotmebro.Messages">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <ListView
-            android:id="@+id/newListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="56dp"
-            />
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="bottom">
 
 
             <Button
@@ -43,19 +35,40 @@
                 android:text="Back"
                 android:onClick="GoToMain"/>
 
-            <Button
-                android:id="@+id/newconvo"
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/newListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="56dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/newmessage"
+                android:text="New Message...."
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Create a new Conversation!"
-                android:onClick="newconvo"/>
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:text="Submit"
+                android:id="@+id/submitbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addMessage"/>
 
         </LinearLayout>
 
 
 
 
-    </LinearLayout>
 
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

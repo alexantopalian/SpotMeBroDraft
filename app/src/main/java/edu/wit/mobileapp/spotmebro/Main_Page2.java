@@ -43,6 +43,8 @@ public class Main_Page2 extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__page2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+
         //setSupportActionBar(toolbar);
 
         /*
@@ -66,7 +68,7 @@ public class Main_Page2 extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         mAuth = FirebaseAuth.getInstance();
-
+        //mAuth.signOut();
         String tempUser = "";
         final String user = mAuth.getCurrentUser().getUid().toString();
         //mUidNav = findViewById(R.id.UIDNavTex);
@@ -148,6 +150,9 @@ public class Main_Page2 extends AppCompatActivity
         } else if (id == R.id.ContactUs)
         {
             startActivity(new Intent(Main_Page2.this, ContactUs.class));
+        }else if (id == R.id.Conversations)
+        {
+            startActivity(new Intent(Main_Page2.this, Conversations.class));
         } else if (id == R.id.SignOut)
         {
             mAuth = FirebaseAuth.getInstance();
