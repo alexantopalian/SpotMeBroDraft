@@ -144,7 +144,7 @@ public class HourMatches extends AppCompatActivity {
                                 AllNames.add(name);
                                 AllUIDs.add(UIDs);
                             }
-                            else if ( (MyApplication.Global_Preffered_Gender.equalsIgnoreCase("Both")) && ( MyApplication.Global_Style.equalsIgnoreCase(Style )))
+                            else if ( (MyApplication.Global_Preffered_Gender.equalsIgnoreCase("NoPreference")) && ( MyApplication.Global_Style.equalsIgnoreCase(Style )))
                             {
                                 String name = ds.child("Email").getValue().toString();
                                 String UIDs = ds.getKey();
