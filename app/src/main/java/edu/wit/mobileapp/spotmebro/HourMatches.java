@@ -135,21 +135,35 @@ public class HourMatches extends AppCompatActivity {
                     {
                         //try
                         //{
+
+                            String useremail = mAuth.getCurrentUser().getEmail();
                             String Style = ds.child("Style").getValue().toString();
                             String Gender = ds.child("Gender").getValue().toString();
                             if(( MyApplication.Global_Style.equalsIgnoreCase(Style))&& ((MyApplication.Global_Preffered_Gender.equalsIgnoreCase(Gender))))
                             {
-                                String name = ds.child("Email").getValue().toString();
-                                String UIDs = ds.getKey();
-                                AllNames.add(name);
-                                AllUIDs.add(UIDs);
+                                if(useremail.equalsIgnoreCase(ds.child("Email").getValue().toString()))
+                                {
+
+                                }
+                                else {
+                                    String name = ds.child("Email").getValue().toString();
+                                    String UIDs = ds.getKey();
+                                    AllNames.add(name);
+                                    AllUIDs.add(UIDs);
+                                }
                             }
                             else if ( (MyApplication.Global_Preffered_Gender.equalsIgnoreCase("NoPreference")) && ( MyApplication.Global_Style.equalsIgnoreCase(Style )))
                             {
-                                String name = ds.child("Email").getValue().toString();
-                                String UIDs = ds.getKey();
-                                AllNames.add(name);
-                                AllUIDs.add(UIDs);
+                                if(useremail.equalsIgnoreCase(ds.child("Email").getValue().toString()))
+                                {
+
+                                }
+                                else {
+                                    String name = ds.child("Email").getValue().toString();
+                                    String UIDs = ds.getKey();
+                                    AllNames.add(name);
+                                    AllUIDs.add(UIDs);
+                                }
                             }
 
                         //}
