@@ -80,10 +80,24 @@ public class Matches_Profile extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 mAnswerOutput.setText(dataSnapshot.child("Answer").getValue().toString());
-                mAvailabilityOutput.setText(dataSnapshot.child("Availability").getValue().toString());
                 mEmailOutput.setText(dataSnapshot.child("Email").getValue().toString());
                 mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
-                mConversationOutput.setText(dataSnapshot.child("Conversations").getValue().toString());
+
+                try {
+                    mAvailabilityOutput.setText(dataSnapshot.child("Availability").getValue().toString());
+                }
+                catch (NullPointerException i){
+                    mAvailabilityOutput.setText("no availabilities");
+                }
+
+                try {
+                    mConversationOutput.setText(dataSnapshot.child("Conversations").getValue().toString());
+                }
+                catch (NullPointerException i){
+                    mAvailabilityOutput.setText("no conversations");
+                }
+
+
             }
 
             @Override
