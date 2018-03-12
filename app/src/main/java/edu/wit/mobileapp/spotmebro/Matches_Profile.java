@@ -94,7 +94,7 @@ public class Matches_Profile extends AppCompatActivity {
                     mConversationOutput.setText(dataSnapshot.child("Conversations").getValue().toString());
                 }
                 catch (NullPointerException i){
-                    mAvailabilityOutput.setText("no conversations");
+                    mConversationOutput.setText("no conversations");
                 }
 
 
