@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,12 @@ public class User_Profile extends AppCompatActivity
     private  String UID;
 
 
+    private TextView mEmailOutput  ;
+    private TextView mSecurityOutput  ;
+    private TextView mAnswerOutput  ;
+    private TextView mAvailabilityOutput  ;
+    private TextView mConversationOutput ;
+
     private ListView listview;
     private ArrayList<String> entries;
 
@@ -49,10 +56,14 @@ public class User_Profile extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user__profile);
         mAuth = FirebaseAuth.getInstance();
-        
 
 
-            UID = mAuth.getCurrentUser().getUid();
+        mAnswerOutput = (TextView) findViewById(R.id.Answer_output);
+        mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
+        mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
+        mEmailOutput = (TextView) findViewById(R.id.Email_output);
+        mSecurityOutput = (TextView) findViewById(R.id.Security_output);
+        UID = mAuth.getCurrentUser().getUid();
 
 
 
@@ -66,6 +77,23 @@ public class User_Profile extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
+
+                mAnswerOutput.setText(dataSnapshot.child("Answer").getValue().toString());
+                mAvailabilityOutput.setText(dataSnapshot.child("Availability").getValue().toString());
+                mEmailOutput.setText(dataSnapshot.child("Email").getValue().toString());
+                mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
+                mConversationOutput.setText(dataSnapshot.child("Conversations").getValue().toString());
+
+
+
+
+
+
+
+
+
+
+                /*
                 entries = new ArrayList<>();
                 Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
                 Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
@@ -86,6 +114,7 @@ public class User_Profile extends AppCompatActivity
                 ArrayAdapter<String> arrayAdapter;
                 arrayAdapter = new ArrayAdapter<String>(User_Profile.this, android.R.layout.simple_list_item_1, entries);
                 listview.setAdapter(arrayAdapter);
+                */
             }
 
             @Override

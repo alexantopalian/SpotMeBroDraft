@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +27,13 @@ public class Matches_Profile extends AppCompatActivity {
     private DatabaseReference myRef;
     private DatabaseReference myRef2;
     private DatabaseReference myRef3;
+
+    private TextView mEmailOutput  ;
+    private TextView mSecurityOutput  ;
+    private TextView mAnswerOutput  ;
+    private TextView mAvailabilityOutput  ;
+    private TextView mConversationOutput ;
+
 
     private DatabaseReference myRefUsers;
     private  String UID;
@@ -50,6 +58,12 @@ public class Matches_Profile extends AppCompatActivity {
         setContentView(R.layout.activity_matches__profile);
         mAuth = FirebaseAuth.getInstance();
 
+        mAnswerOutput = (TextView) findViewById(R.id.Answer_output);
+        mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
+        mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
+        mEmailOutput = (TextView) findViewById(R.id.Email_output);
+        mSecurityOutput = (TextView) findViewById(R.id.Security_output);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
@@ -65,25 +79,11 @@ public class Matches_Profile extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                entries = new ArrayList<>();
-                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
-                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
-                while(iterator.hasNext())
-                {
-                    try
-                    {
-                        String value = iterator.next().getValue(String.class);
-                        entries.add(value);
-                    }
-                    catch (DatabaseException e)
-                    {
-                        Log.v(TAG, "preferences=" + e);
-
-                    }
-                }
-                ArrayAdapter<String> arrayAdapter;
-                arrayAdapter = new ArrayAdapter<String>(Matches_Profile.this, android.R.layout.simple_list_item_1, entries);
-                listview.setAdapter(arrayAdapter);
+                mAnswerOutput.setText(dataSnapshot.child("Answer").getValue().toString());
+                mAvailabilityOutput.setText(dataSnapshot.child("Availability").getValue().toString());
+                mEmailOutput.setText(dataSnapshot.child("Email").getValue().toString());
+                mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
+                mConversationOutput.setText(dataSnapshot.child("Conversations").getValue().toString());
             }
 
             @Override
