@@ -24,6 +24,9 @@ public class Matches_Profile extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference myRef;
+    private DatabaseReference myRef2;
+    private DatabaseReference myRef3;
+
     private DatabaseReference myRefUsers;
     private  String UID;
 
@@ -119,12 +122,16 @@ public class Matches_Profile extends AppCompatActivity {
         final String convo1 = (othersUID + '-' + yourUID);
         final String convo2 = (yourUID + '-' + othersUID);
 
-        myRef = FirebaseDatabase.getInstance().getReference("Messages");
+
+        myRef= FirebaseDatabase.getInstance().getReference("Messages");
         myRef.child(' '+ othersUID + '-' + yourUID).push().setValue("New Message");
+
+
+
         try
         {
-            myRef = FirebaseDatabase.getInstance().getReference("Users").child(othersUID);
-            myRef.addValueEventListener(new ValueEventListener() {
+            myRef2 = FirebaseDatabase.getInstance().getReference("Users").child(othersUID);
+            myRef2.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot)
                 {
@@ -137,12 +144,12 @@ public class Matches_Profile extends AppCompatActivity {
                         }
                         else
                         {
-                            myRef.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + convo1);
+                            myRef2.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + convo1);
                         }
                     }
                     catch(NullPointerException i)
                     {
-                        myRef.child("Conversations").setValue(", "+convo1);
+                        myRef2.child("Conversations").setValue(", "+convo1);
                     }
 
 
@@ -157,13 +164,13 @@ public class Matches_Profile extends AppCompatActivity {
         catch (NullPointerException e)
         {
             database.getReference("Users").child(othersUID).child("Conversations").setValue(", "+convo1);
-
         }
+
 
         try
         {
-            myRef = FirebaseDatabase.getInstance().getReference("Users").child(yourUID);
-            myRef.addValueEventListener(new ValueEventListener() {
+            myRef3 = FirebaseDatabase.getInstance().getReference("Users").child(yourUID);
+            myRef3.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot)
                 {
@@ -173,13 +180,13 @@ public class Matches_Profile extends AppCompatActivity {
                         if (x.contains(convo1) || x.contains(convo2)) {
                             //toast already conversation
                         } else {
-                            myRef.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + convo1);
+                            myRef3.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + convo1);
                         }
                     }
                     catch(NullPointerException i)
                     {
                         //myRef = database.getReference("Users").child(yourUID);
-                        myRef.child("Conversations").setValue(", "+convo1);
+                        myRef3.child("Conversations").setValue(", "+convo1);
 
                         //database.getReference("User").child(yourUID).child("Conversations").setValue(", "+ convo1);
 
