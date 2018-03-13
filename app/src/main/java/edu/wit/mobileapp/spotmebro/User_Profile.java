@@ -36,6 +36,7 @@ public class User_Profile extends AppCompatActivity
     private TextView mAnswerOutput  ;
     private TextView mAvailabilityOutput  ;
     private TextView mConversationOutput ;
+    private TextView mNameOutput ;
 
     private ListView listview;
     private ArrayList<String> entries;
@@ -63,6 +64,7 @@ public class User_Profile extends AppCompatActivity
         mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
         mEmailOutput = (TextView) findViewById(R.id.Email_output);
         mSecurityOutput = (TextView) findViewById(R.id.Security_output);
+        mNameOutput = (TextView) findViewById(R.id.Name_output);
         UID = mAuth.getCurrentUser().getUid();
 
 
@@ -81,6 +83,7 @@ public class User_Profile extends AppCompatActivity
                 mAnswerOutput.setText(dataSnapshot.child("Answer").getValue().toString());
                 mEmailOutput.setText(dataSnapshot.child("Email").getValue().toString());
                 mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
+                mNameOutput.setText(dataSnapshot.child("Name").getValue().toString());
 
                 try {
                     mAvailabilityOutput.setText(dataSnapshot.child("Availability").getValue().toString());

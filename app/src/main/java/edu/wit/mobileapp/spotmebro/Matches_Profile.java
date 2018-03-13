@@ -33,6 +33,8 @@ public class Matches_Profile extends AppCompatActivity {
     private TextView mAnswerOutput  ;
     private TextView mAvailabilityOutput  ;
     private TextView mConversationOutput ;
+    private TextView mNameOutput ;
+
 
 
     private DatabaseReference myRefUsers;
@@ -63,6 +65,8 @@ public class Matches_Profile extends AppCompatActivity {
         mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
         mEmailOutput = (TextView) findViewById(R.id.Email_output);
         mSecurityOutput = (TextView) findViewById(R.id.Security_output);
+        mNameOutput = (TextView) findViewById(R.id.Name_output);
+
 
         Bundle extras = getIntent().getExtras();
         if (extras != null)
@@ -82,6 +86,8 @@ public class Matches_Profile extends AppCompatActivity {
                 mAnswerOutput.setText(dataSnapshot.child("Answer").getValue().toString());
                 mEmailOutput.setText(dataSnapshot.child("Email").getValue().toString());
                 mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
+                mNameOutput.setText(dataSnapshot.child("Name").getValue().toString());
+
 
                 try {
                     mAvailabilityOutput.setText(dataSnapshot.child("Availability").getValue().toString());
