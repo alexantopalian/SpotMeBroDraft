@@ -46,6 +46,7 @@ public class Sign_up extends AppCompatActivity
     // Widget Declarations
     private EditText mEmail_input;
     private EditText mPassword_input;
+    private EditText mName_input;
     private EditText mVerify_input;
     private Spinner mSecurity_input;
     private EditText mAnswer_input;
@@ -74,6 +75,8 @@ public class Sign_up extends AppCompatActivity
         //message = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
+        mName_input = findViewById(R.id.Name_Input);
+        mEmail_input = findViewById(R.id.Email_input);
         mEmail_input = findViewById(R.id.Email_input);
         mPassword_input = findViewById(R.id.Password_input);
         mVerify_input = findViewById(R.id.Verify_input);
@@ -128,7 +131,7 @@ public class Sign_up extends AppCompatActivity
         final String Style = mStyle_input.getSelectedItem().toString();
         final String Gender = mGender_input.getSelectedItem().toString();
         final String Preferred_Gender = mPref_gender_input.getSelectedItem().toString();
-
+        final String name = mName_input.getText().toString();
 
 
 
@@ -183,6 +186,7 @@ public class Sign_up extends AppCompatActivity
                         myRef.child("Security").setValue(Security);
                         myRef.child("Answer").setValue(Answer);
                         myRef.child("Gender").setValue(Gender);
+                        myRef.child("Name").setValue(name);
 
                         myPref = database.getReference("Users").child(user).child("Preferences");
                         myPref.child("Preferred_Gender").setValue(Preferred_Gender);
