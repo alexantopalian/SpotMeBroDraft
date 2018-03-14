@@ -60,11 +60,11 @@ public class Matches_Profile extends AppCompatActivity {
         setContentView(R.layout.activity_matches__profile);
         mAuth = FirebaseAuth.getInstance();
 
-        mAnswerOutput = (TextView) findViewById(R.id.Answer_output);
+        //mAnswerOutput = (TextView) findViewById(R.id.Answer_output);
         mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
         mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
         mEmailOutput = (TextView) findViewById(R.id.Email_output);
-        mSecurityOutput = (TextView) findViewById(R.id.Security_output);
+        //mSecurityOutput = (TextView) findViewById(R.id.Security_output);
         mNameOutput = (TextView) findViewById(R.id.Name_output);
 
 
@@ -83,9 +83,9 @@ public class Matches_Profile extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                mAnswerOutput.setText(dataSnapshot.child("Answer").getValue().toString());
+                //mAnswerOutput.setText(dataSnapshot.child("Answer").getValue().toString());
                 mEmailOutput.setText(dataSnapshot.child("Email").getValue().toString());
-                mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
+                //mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
                 mNameOutput.setText(dataSnapshot.child("Name").getValue().toString());
 
 
