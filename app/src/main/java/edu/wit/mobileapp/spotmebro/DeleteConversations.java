@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Conversations extends AppCompatActivity {
+public class DeleteConversations extends AppCompatActivity {
 
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     // Database stuff:
@@ -46,7 +46,7 @@ public class Conversations extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_conversations);
+        setContentView(R.layout.activity_delete_conversations);
 
 
         AllConversations = new ArrayList<String>();
@@ -80,7 +80,7 @@ public class Conversations extends AppCompatActivity {
                 {
                     AllConversations.add(convos[i]);
                 }
-                ArrayAdapter<String> adapter = new ArrayAdapter(Conversations.this, android.R.layout.simple_list_item_1, AllConversations);
+                ArrayAdapter<String> adapter = new ArrayAdapter(DeleteConversations.this, android.R.layout.simple_list_item_1, AllConversations);
 
                 listview.setAdapter(adapter);
 
@@ -90,10 +90,17 @@ public class Conversations extends AppCompatActivity {
                     {
                         if(temp != ", ")
                         {
-                            String conversation = (listview.getItemAtPosition(position)).toString();
-                            Intent gotoMessages = new Intent(Conversations.this, Messages.class);
-                            gotoMessages.putExtra("conversation", conversation);
-                            startActivity(gotoMessages);
+
+                            String convo = (listview.getItemAtPosition(position)).toString();
+                            String UIDS [] = convo.split("-");
+                            myRef = FirebaseDatabase.getInstance().getReference("").child("Messages").child(convo);
+                            myRef.removeValue();
+
+                            temp = temp.replace(("," + convo), "");
+                            myRef = FirebaseDatabase.getInstance().getReference("Users").child(UIDS[0].trim()).child("Conversations");
+                            myRef.setValue(temp);
+                            myRef = FirebaseDatabase.getInstance().getReference("Users").child(UIDS[1].trim()).child("Conversations");
+                            myRef.setValue(temp);
                         }
 
                     }
@@ -121,18 +128,19 @@ public class Conversations extends AppCompatActivity {
     {
 
         mAuth.signOut();
-        startActivity(new Intent(Conversations.this, Login.class));
+        startActivity(new Intent(DeleteConversations.this, Login.class));
 
     }
 
     public void GoToMain(View view)
     {
-        startActivity(new Intent(Conversations.this, Main_Page2.class));
+        startActivity(new Intent(DeleteConversations.this, Main_Page2.class));
 
     }
 
     public void GoToDelete(View view) {
-        startActivity(new Intent(Conversations.this, DeleteConversations.class));
+        startActivity(new Intent(DeleteConversations.this, Conversations.class));
 
     }
 }
+

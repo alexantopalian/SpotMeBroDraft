@@ -37,7 +37,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ContactUs" />
         <activity android:name=".Conversations" />
-        <activity android:name=".Messages"></activity>
+        <activity android:name=".Messages" />
+        <activity android:name=".DeleteConversations"></activity>
     </application>
 
 </manifest>
