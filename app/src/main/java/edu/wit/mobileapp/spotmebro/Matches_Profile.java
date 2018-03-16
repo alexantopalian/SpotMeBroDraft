@@ -61,8 +61,8 @@ public class Matches_Profile extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //mAnswerOutput = (TextView) findViewById(R.id.Answer_output);
-        mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
-        mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
+        //mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
+        //mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
         mEmailOutput = (TextView) findViewById(R.id.Email_output);
         //mSecurityOutput = (TextView) findViewById(R.id.Security_output);
         mNameOutput = (TextView) findViewById(R.id.Name_output);
@@ -88,7 +88,7 @@ public class Matches_Profile extends AppCompatActivity {
                 //mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
                 mNameOutput.setText(dataSnapshot.child("Name").getValue().toString());
 
-
+                /*
                 try {
                     mAvailabilityOutput.setText(dataSnapshot.child("Availability").getValue().toString());
                 }
@@ -102,6 +102,7 @@ public class Matches_Profile extends AppCompatActivity {
                 catch (NullPointerException i){
                     mConversationOutput.setText("no conversations");
                 }
+                */
 
 
             }
@@ -139,12 +140,15 @@ public class Matches_Profile extends AppCompatActivity {
     public void newconvo(View view) {
         final String othersUID = UID;
         final String yourUID = mAuth.getUid().toString();
-        final String convo1 = (othersUID + '-' + yourUID);
-        final String convo2 = (yourUID + '-' + othersUID);
+        final String otheremail = mNameOutput.getText().toString();
+        final String youremail = MyApplication.Global_Name.toString();
+        final String convo1 = (otheremail + '-' + youremail);
+        final String convo2 = (youremail + '-' + otheremail);
 
 
         myRef= FirebaseDatabase.getInstance().getReference("Messages");
-        myRef.child(' '+ othersUID + '-' + yourUID).push().setValue("New Message");
+        myRef.child(' '+ otheremail + '-' + youremail).child("MessageList").push().setValue("New Message");
+        myRef.child(' '+ otheremail + '-' + youremail).child("Names").push().setValue(otheremail + "," + youremail);
 
 
 
@@ -158,18 +162,18 @@ public class Matches_Profile extends AppCompatActivity {
                     try
                     {
                         String x = dataSnapshot.child("Conversations").getValue().toString();
-                        if (x.contains(convo1) || x.contains(convo2))
+                        if (x.contains(youremail))
                         {
                             //toast already conversation
                         }
                         else
                         {
-                            myRef2.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + convo1);
+                            myRef2.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + youremail);
                         }
                     }
                     catch(NullPointerException i)
                     {
-                        myRef2.child("Conversations").setValue(", "+convo1);
+                        myRef2.child("Conversations").setValue(", "+youremail);
                     }
 
 
@@ -183,7 +187,7 @@ public class Matches_Profile extends AppCompatActivity {
         }
         catch (NullPointerException e)
         {
-            database.getReference("Users").child(othersUID).child("Conversations").setValue(", "+convo1);
+            database.getReference("Users").child(othersUID).child("Conversations").setValue(", "+youremail);
         }
 
 
@@ -197,16 +201,16 @@ public class Matches_Profile extends AppCompatActivity {
                     try
                     {
                         String x = dataSnapshot.child("Conversations").getValue().toString();
-                        if (x.contains(convo1) || x.contains(convo2)) {
+                        if (x.contains(otheremail)) {
                             //toast already conversation
                         } else {
-                            myRef3.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + convo1);
+                            myRef3.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + otheremail);
                         }
                     }
                     catch(NullPointerException i)
                     {
                         //myRef = database.getReference("Users").child(yourUID);
-                        myRef3.child("Conversations").setValue(", "+convo1);
+                        myRef3.child("Conversations").setValue(", "+otheremail);
 
                         //database.getReference("User").child(yourUID).child("Conversations").setValue(", "+ convo1);
 
@@ -221,7 +225,7 @@ public class Matches_Profile extends AppCompatActivity {
         }
         catch(NullPointerException e)
         {
-            database.getReference("Users").child(yourUID).child("Conversations").setValue(", "+ convo1);
+            database.getReference("Users").child(yourUID).child("Conversations").setValue(", "+ otheremail);
         }
 
 

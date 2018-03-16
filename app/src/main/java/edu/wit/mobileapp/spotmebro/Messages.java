@@ -33,8 +33,9 @@ public class Messages extends AppCompatActivity {
     private DatabaseReference myRefAvailability;
 
     private RecyclerView recyclerview;
-    private String conversationID;
-
+    private String conversationID1;
+    private String conversationID2;
+    private String conversation;
     private ListView listview;
     private ArrayList<String> entries;
     private ArrayList<String> AllConversations;
@@ -55,47 +56,85 @@ public class Messages extends AppCompatActivity {
         listview = (ListView) findViewById(R.id.newListView);
 
         mAuth = FirebaseAuth.getInstance();
-        conversationID = " ";
+        String youremail = MyApplication.Global_Name.toString();
+        conversation = " ";
         Bundle extras = getIntent().getExtras();
-        if (extras != null)
-        {
-            conversationID = extras.getString("conversation");
+        if (extras != null) {
+            conversation = extras.getString("conversation");
         }
-        myRef = FirebaseDatabase.getInstance().getReference("Messages").child(conversationID);
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                entries = new ArrayList<>();
-                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
-                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
-                while(iterator.hasNext())
-                {
-                    try
-                    {
-                        String value = iterator.next().getValue(String.class);
-                        entries.add(value);
-                    }
-                    catch (DatabaseException e)
-                    {
-                       //error messages
 
+        conversationID1 = conversation + "-" + youremail;
+        conversationID2 =  youremail + "-" + conversation;
+
+
+        try {
+            myRef = FirebaseDatabase.getInstance().getReference("Messages").child(conversationID2).child("MessageList");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    entries = new ArrayList<>();
+                    Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
+                    Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
+                    while (iterator.hasNext()) {
+                        try {
+                            String value = iterator.next().getValue(String.class);
+                            entries.add(value);
+                        } catch (DatabaseException e) {
+                            //error messages
+
+                        }
                     }
+                    ArrayAdapter<String> arrayAdapter;
+                    arrayAdapter = new ArrayAdapter<String>(Messages.this, android.R.layout.simple_list_item_1, entries);
+                    listview.setAdapter(arrayAdapter);
                 }
-                ArrayAdapter<String> arrayAdapter;
-                arrayAdapter = new ArrayAdapter<String>(Messages.this, android.R.layout.simple_list_item_1, entries);
-                listview.setAdapter(arrayAdapter);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
 
+        }
+        catch (NullPointerException e)
+        {
+            myRef = FirebaseDatabase.getInstance().getReference("Messages").child(conversationID1);
+        }
+
+        try {
+            myRef = FirebaseDatabase.getInstance().getReference("Messages").child(conversationID1);
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    entries = new ArrayList<>();
+                    Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
+                    Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
+                    while (iterator.hasNext()) {
+                        try {
+                            String value = iterator.next().getValue(String.class);
+                            entries.add(value);
+                        } catch (DatabaseException e) {
+                            //error messages
+
+                        }
+                    }
+                    ArrayAdapter<String> arrayAdapter;
+                    arrayAdapter = new ArrayAdapter<String>(Messages.this, android.R.layout.simple_list_item_1, entries);
+                    listview.setAdapter(arrayAdapter);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+        catch (NullPointerException e)
+        {
+            myRef = FirebaseDatabase.getInstance().getReference("Messages").child(conversationID2);
+        }
     }
-
-
     public void signOut(View view)
     {
 
@@ -113,6 +152,6 @@ public class Messages extends AppCompatActivity {
     public void addMessage(View view) {
         medittext = (EditText) findViewById(R.id.newmessage);
 
-        myRef.push().setValue(medittext.getText().toString());
+        myRef.child("MessageList").push().setValue(medittext.getText().toString());
     }
 }

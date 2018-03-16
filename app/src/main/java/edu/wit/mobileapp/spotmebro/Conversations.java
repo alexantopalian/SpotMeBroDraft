@@ -90,7 +90,8 @@ public class Conversations extends AppCompatActivity {
                     {
                         if(temp != ", ")
                         {
-                            String conversation = (listview.getItemAtPosition(position)).toString();
+                            String other_email = (listview.getItemAtPosition(position)).toString();
+                            String conversation = (other_email);
                             Intent gotoMessages = new Intent(Conversations.this, Messages.class);
                             gotoMessages.putExtra("conversation", conversation);
                             startActivity(gotoMessages);

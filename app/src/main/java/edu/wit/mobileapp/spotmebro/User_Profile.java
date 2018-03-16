@@ -60,8 +60,8 @@ public class User_Profile extends AppCompatActivity
 
 
         //mAnswerOutput = (TextView) findViewById(R.id.Answer_output);
-        mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
-        mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
+        //mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
+        //mConversationOutput = (TextView) findViewById(R.id.Conversation_output);
         mEmailOutput = (TextView) findViewById(R.id.Email_output);
         //mSecurityOutput = (TextView) findViewById(R.id.Security_output);
         mNameOutput = (TextView) findViewById(R.id.Name_output);
@@ -85,6 +85,7 @@ public class User_Profile extends AppCompatActivity
                 //mSecurityOutput.setText(dataSnapshot.child("Security").getValue().toString());
                 mNameOutput.setText(dataSnapshot.child("Name").getValue().toString());
 
+                /*
                 try {
                     mAvailabilityOutput.setText(dataSnapshot.child("Availability").getValue().toString());
                 }
@@ -98,7 +99,7 @@ public class User_Profile extends AppCompatActivity
                 catch (NullPointerException i){
                     mConversationOutput.setText("no conversations");
                 }
-
+*/
 
                 /*
                 entries = new ArrayList<>();

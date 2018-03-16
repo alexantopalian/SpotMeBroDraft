@@ -12,6 +12,7 @@ public class MyApplication extends Application {
     public static String Global_Preffered_Gender = "x";
     public static String Global_Gender = "x";
     public static String Global_Style = "x";
+    public static String Global_Name = "x";
 
     private static MyApplication singleton;
 
