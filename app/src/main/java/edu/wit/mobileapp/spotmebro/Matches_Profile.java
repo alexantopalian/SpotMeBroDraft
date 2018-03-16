@@ -144,12 +144,13 @@ public class Matches_Profile extends AppCompatActivity {
         final String youremail = MyApplication.Global_Name.toString();
         final String convo1 = (otheremail + '-' + youremail);
         final String convo2 = (youremail + '-' + otheremail);
-
+        final String otherstuff = otheremail+"-"+othersUID;
+        final String yourstuff = youremail+"-"+yourUID;
 
         myRef= FirebaseDatabase.getInstance().getReference("Messages");
-        myRef.child(' '+ otheremail + '-' + youremail).child("MessageList").push().setValue("New Message");
-        myRef.child(' '+ otheremail + '-' + youremail).child("Names").push().setValue(otheremail + "," + youremail);
+        myRef.child(' '+ otheremail +'-' + youremail ).child("MessageList").push().setValue("New Message");
 
+        /*
 
 
         try
@@ -162,18 +163,18 @@ public class Matches_Profile extends AppCompatActivity {
                     try
                     {
                         String x = dataSnapshot.child("Conversations").getValue().toString();
-                        if (x.contains(youremail))
+                        if (x.contains(yourstuff))
                         {
                             //toast already conversation
                         }
                         else
                         {
-                            myRef2.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + youremail);
+                            myRef2.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + yourstuff);
                         }
                     }
                     catch(NullPointerException i)
                     {
-                        myRef2.child("Conversations").setValue(", "+youremail);
+                        myRef2.child("Conversations").setValue(", "+yourstuff);
                     }
 
 
@@ -187,7 +188,7 @@ public class Matches_Profile extends AppCompatActivity {
         }
         catch (NullPointerException e)
         {
-            database.getReference("Users").child(othersUID).child("Conversations").setValue(", "+youremail);
+            database.getReference("Users").child(othersUID).child("Conversations").setValue(", "+yourstuff);
         }
 
 
@@ -201,16 +202,16 @@ public class Matches_Profile extends AppCompatActivity {
                     try
                     {
                         String x = dataSnapshot.child("Conversations").getValue().toString();
-                        if (x.contains(otheremail)) {
+                        if (x.contains(otherstuff)) {
                             //toast already conversation
                         } else {
-                            myRef3.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + otheremail);
+                            myRef3.child("Conversations").setValue(dataSnapshot.child("Conversations").getValue().toString() + ", " + otherstuff);
                         }
                     }
                     catch(NullPointerException i)
                     {
                         //myRef = database.getReference("Users").child(yourUID);
-                        myRef3.child("Conversations").setValue(", "+otheremail);
+                        myRef3.child("Conversations").setValue(", "+otherstuff);
 
                         //database.getReference("User").child(yourUID).child("Conversations").setValue(", "+ convo1);
 
@@ -225,9 +226,9 @@ public class Matches_Profile extends AppCompatActivity {
         }
         catch(NullPointerException e)
         {
-            database.getReference("Users").child(yourUID).child("Conversations").setValue(", "+ otheremail);
+            database.getReference("Users").child(yourUID).child("Conversations").setValue(", "+ otherstuff);
         }
-
+*/
 
     }
 

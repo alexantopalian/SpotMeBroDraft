@@ -58,50 +58,53 @@ public class Conversations extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         String UID = mAuth.getCurrentUser().getUid();
         listview = findViewById(R.id.newListView);
+        String Name = MyApplication.Global_Name;
 
-        myRefAvailability = FirebaseDatabase.getInstance().getReference("Users");
-        myRef = myRefAvailability.child(UID).child("Conversations");
+        myRef = FirebaseDatabase.getInstance().getReference("Messages");
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                try
-                {
-                    temp = dataSnapshot.getValue().toString();
-                }
-                catch (NullPointerException i)
-                {
-                    temp = ", ";
-                }
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String messagename = ds.getKey().toString();
+                    String[] names = messagename.split("-");
+                    if (names[0].equalsIgnoreCase(MyApplication.Global_Name) || names[1].equalsIgnoreCase(MyApplication.Global_Name)) {
+                        if (names[0].equalsIgnoreCase(MyApplication.Global_Name)) {
 
-
-                String [] convos = temp.split(",");
-                for (int i = 1; i < convos.length; i++)
-                {
-                    AllConversations.add(convos[i]);
-                }
-                ArrayAdapter<String> adapter = new ArrayAdapter(Conversations.this, android.R.layout.simple_list_item_1, AllConversations);
-
-                listview.setAdapter(adapter);
-
-                listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
-                {
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-                    {
-                        if(temp != ", ")
-                        {
-                            String other_email = (listview.getItemAtPosition(position)).toString();
-                            String conversation = (other_email);
-                            Intent gotoMessages = new Intent(Conversations.this, Messages.class);
-                            gotoMessages.putExtra("conversation", conversation);
-                            startActivity(gotoMessages);
+                        } else {
+                            AllConversations.add(names[0]);
                         }
+                        if (names[1].equalsIgnoreCase(MyApplication.Global_Name)) {
 
+                        } else {
+                            AllConversations.add(names[1]);
+                        }
                     }
-                });
+                }
+                    ArrayAdapter<String> adapter = new ArrayAdapter(Conversations.this, android.R.layout.simple_list_item_1, AllConversations);
+
+                    listview.setAdapter(adapter);
+
+                    listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                    {
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                        {
+                                if(AllConversations.size() != 0)
+                                {
+                                    String other_email = (listview.getItemAtPosition(position)).toString();
+                                    String conversation = (other_email);
+                                    Intent gotoMessages = new Intent(Conversations.this, Messages.class);
+                                    gotoMessages.putExtra("conversation", conversation);
+                                    startActivity(gotoMessages);
+                                }
+                        }
+                    });
+                }
 
 
-            }
+
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {

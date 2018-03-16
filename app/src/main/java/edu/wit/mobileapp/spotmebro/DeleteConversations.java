@@ -35,8 +35,12 @@ public class DeleteConversations extends AppCompatActivity {
     private ArrayList<String> entries;
     private ArrayList<String> AllConversations;
     private ArrayList<String> AllNames;
+    private String conversationID1;
+    private String conversationID2;
+    private String otherUID;
+    private String RemoveFromConversation;
 
-
+    private String [] convos;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     //
@@ -48,7 +52,7 @@ public class DeleteConversations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_conversations);
 
-
+        RemoveFromConversation = "";
         AllConversations = new ArrayList<String>();
 
 
@@ -59,26 +63,27 @@ public class DeleteConversations extends AppCompatActivity {
         String UID = mAuth.getCurrentUser().getUid();
         listview = findViewById(R.id.newListView);
 
-        myRefAvailability = FirebaseDatabase.getInstance().getReference("Users");
-        myRef = myRefAvailability.child(UID).child("Conversations");
+        myRef = FirebaseDatabase.getInstance().getReference("Messages");
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                try
-                {
-                    temp = dataSnapshot.getValue().toString();
-                }
-                catch (NullPointerException i)
-                {
-                    temp = ", ";
-                }
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String messagename = ds.getKey().toString();
+                    String[] names = messagename.split("-");
+                    if (names[0].equalsIgnoreCase(MyApplication.Global_Name) || names[1].equalsIgnoreCase(MyApplication.Global_Name)) {
+                        if (names[0].equalsIgnoreCase(MyApplication.Global_Name)) {
 
+                        } else {
+                            AllConversations.add(names[0]);
+                        }
+                        if (names[1].equalsIgnoreCase(MyApplication.Global_Name)) {
 
-                String [] convos = temp.split(",");
-                for (int i = 1; i < convos.length; i++)
-                {
-                    AllConversations.add(convos[i]);
+                        } else {
+                            AllConversations.add(names[1]);
+                        }
+                    }
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter(DeleteConversations.this, android.R.layout.simple_list_item_1, AllConversations);
 
@@ -88,20 +93,38 @@ public class DeleteConversations extends AppCompatActivity {
                 {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id)
                     {
-                        if(temp != ", ")
-                        {
 
-                            String convo = (listview.getItemAtPosition(position)).toString();
-                            String UIDS [] = convo.split("-");
-                            myRef = FirebaseDatabase.getInstance().getReference("").child("Messages").child(convo);
-                            myRef.removeValue();
+                            String youremail = MyApplication.Global_Name.toString();
+                            String other_email = (listview.getItemAtPosition(position)).toString();
 
-                            temp = temp.replace(("," + convo), "");
-                            myRef = FirebaseDatabase.getInstance().getReference("Users").child(UIDS[0].trim()).child("Conversations");
-                            myRef.setValue(temp);
-                            myRef = FirebaseDatabase.getInstance().getReference("Users").child(UIDS[1].trim()).child("Conversations");
-                            myRef.setValue(temp);
-                        }
+
+
+                            conversationID1 = other_email + "-" + youremail;
+                            conversationID2 =  youremail + "-" + other_email;
+                            String yourUID = mAuth.getCurrentUser().getUid().toString();
+
+                            try
+                            {
+                                myRef = FirebaseDatabase.getInstance().getReference("").child("Messages").child(conversationID1);
+                                myRef.removeValue();
+                            }
+                            catch (RuntimeException e)
+                            {
+
+                            }
+
+
+                            try
+                            {
+                                myRef = FirebaseDatabase.getInstance().getReference("").child("Messages").child(conversationID2);
+                                myRef.removeValue();
+                            }
+                            catch(RuntimeException e)
+                            {
+
+                            }
+
+
 
                     }
                 });
@@ -114,6 +137,8 @@ public class DeleteConversations extends AppCompatActivity {
 
             }
         });
+        delete_user(RemoveFromConversation);
+
 
 
 
@@ -140,6 +165,36 @@ public class DeleteConversations extends AppCompatActivity {
 
     public void GoToDelete(View view) {
         startActivity(new Intent(DeleteConversations.this, Conversations.class));
+
+    }
+
+    public void delete_user(final String name)
+    {
+        if(name!= "") {
+            final String youremail = MyApplication.Global_Name.toString();
+            myRef = FirebaseDatabase.getInstance().getReference("").child("Users");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        if (ds.child("Name").getValue().toString().equalsIgnoreCase(name)) {
+                            temp = ds.child("Conversations").getValue().toString();
+                            otherUID = ds.getKey().toString();
+                            myRef = FirebaseDatabase.getInstance().getReference("").child("Users").child(otherUID).child("Conversations");
+                            temp = temp.replace(("," + youremail), "");
+                            myRef.setValue(temp);
+                        }
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+        RemoveFromConversation = "";
 
     }
 }
