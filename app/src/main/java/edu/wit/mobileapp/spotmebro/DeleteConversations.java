@@ -137,7 +137,7 @@ public class DeleteConversations extends AppCompatActivity {
 
             }
         });
-        delete_user(RemoveFromConversation);
+        //delete_user(RemoveFromConversation);
 
 
 

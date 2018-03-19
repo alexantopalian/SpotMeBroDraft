@@ -54,6 +54,8 @@ public class Sign_up extends AppCompatActivity
     private Spinner mGender_input;
     private Spinner mPref_gender_input;
 
+    private boolean isthere;
+
 
     private Button mSubmit_button;
     //
@@ -124,8 +126,8 @@ public class Sign_up extends AppCompatActivity
     private void userRegister()
     {
         final String Email = mEmail_input.getText().toString();
-        String Password = mPassword_input.getText().toString();
-        String Verify = mVerify_input.getText().toString();
+        final String Password = mPassword_input.getText().toString();
+        final String Verify = mVerify_input.getText().toString();
         final String Security = mSecurity_input.getSelectedItem().toString();
         final String Answer = mAnswer_input.getText().toString();
         final String Style = mStyle_input.getSelectedItem().toString();
@@ -135,82 +137,123 @@ public class Sign_up extends AppCompatActivity
 
 
 
-        if(TextUtils.isEmpty(Email))
-        {
-            Toast.makeText(this, "Please enter email", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(Password))
-        {
-            Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(Verify))
-        {
-            Toast.makeText(this, "Please enter password verification", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(Security))
-        {
-            Toast.makeText(this, "Please enter security question", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(Answer))
-        {
-            Toast.makeText(this, "Please enter answer to security question", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(Style))
-        {
-            Toast.makeText(this, "Please enter working out style (cardio or powerlifting)", Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        //Toast.makeText(this, Email, Toast.LENGTH_LONG).show();
-        if(TextUtils.equals(Password, Verify))
-        {
-            firebaseAuth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
+        isthere = false;
+        myRef = database.getReference("Users");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
             {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task)
+                for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
-                    if(task.isSuccessful())
+                    try
                     {
-                        Toast.makeText(Sign_up.this, "Successful Registration", Toast.LENGTH_LONG).show();
-                        //message.hide();
-
-                        String user = firebaseAuth.getCurrentUser().getUid();
-
-                        myRef = database.getReference("Users").child(user);
-                        myRef.child("Email").setValue(Email);
-                        myRef.child("Security").setValue(Security);
-                        myRef.child("Answer").setValue(Answer);
-                        myRef.child("Gender").setValue(Gender);
-                        myRef.child("Name").setValue(name);
-
-                        myPref = database.getReference("Users").child(user).child("Preferences");
-                        myPref.child("Preferred_Gender").setValue(Preferred_Gender);
-                        myPref.child("Style").setValue(Style);
-
-
-
-                        Intent signedup = new Intent(Sign_up.this, Login.class);
-                        startActivity(signedup);
+                        if( ds.child("Name").getValue().toString().equalsIgnoreCase(name))
+                        {
+                            isthere = true;
+                        }
                     }
-                    if(!task.isSuccessful())
+                   catch (NullPointerException e)
+                   {
+
+                   }
+                }
+
+                if (isthere == true)
+                {
+                    Toast.makeText(Sign_up.this, "Name is already used", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    if(TextUtils.isEmpty(Email))
                     {
-                        Toast.makeText(Sign_up.this, "Failed Registration", Toast.LENGTH_LONG).show();
-                        //message.hide();
+                        Toast.makeText(Sign_up.this, "Please enter email", Toast.LENGTH_LONG).show();
                         return;
                     }
+                    if(TextUtils.isEmpty(Password))
+                    {
+                        Toast.makeText(Sign_up.this, "Please enter password", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    if(TextUtils.isEmpty(Verify))
+                    {
+                        Toast.makeText(Sign_up.this, "Please enter password verification", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    if(TextUtils.isEmpty(Security))
+                    {
+                        Toast.makeText(Sign_up.this, "Please enter security question", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    if(TextUtils.isEmpty(Answer))
+                    {
+                        Toast.makeText(Sign_up.this, "Please enter answer to security question", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    if(TextUtils.isEmpty(Style))
+                    {
+                        Toast.makeText(Sign_up.this, "Please enter working out style (cardio or powerlifting)", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    if(TextUtils.equals(Password, Verify))
+                    {
+                        //see if this works
+                        firebaseAuth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener(Sign_up.this, new OnCompleteListener<AuthResult>()
+                        {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task)
+                            {
+                                if(task.isSuccessful())
+                                {
+                                    Toast.makeText(Sign_up.this, "Successful Registration", Toast.LENGTH_LONG).show();
+                                    //message.hide();
+
+                                    String user = firebaseAuth.getCurrentUser().getUid();
+
+                                    myRef = database.getReference("Users").child(user);
+                                    myRef.child("Email").setValue(Email);
+                                    myRef.child("Security").setValue(Security);
+                                    myRef.child("Answer").setValue(Answer);
+                                    myRef.child("Gender").setValue(Gender);
+                                    myRef.child("Name").setValue(name);
+
+                                    myPref = database.getReference("Users").child(user).child("Preferences");
+                                    myPref.child("Preferred_Gender").setValue(Preferred_Gender);
+                                    myPref.child("Style").setValue(Style);
+
+                                    Intent signedup = new Intent(Sign_up.this, Login.class);
+                                    startActivity(signedup);
+                                }
+                                if(!task.isSuccessful())
+                                {
+                                    Toast.makeText(Sign_up.this, "Failed Registration", Toast.LENGTH_LONG).show();
+                                    //message.hide();
+                                    return;
+                                }
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Toast.makeText(Sign_up.this, "Passwords do not match", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
                 }
-            });
-        }
-        else
-        {
-            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_LONG).show();
-            return;
-        }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
 
 
     }
