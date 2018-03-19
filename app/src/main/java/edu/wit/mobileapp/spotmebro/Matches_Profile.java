@@ -18,7 +18,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 
 public class Matches_Profile extends AppCompatActivity {
@@ -46,6 +49,7 @@ public class Matches_Profile extends AppCompatActivity {
 
     private ListView listview;
     private ArrayList<String> entries;
+    private String formattedDate;
 
 
     private FirebaseAuth mAuth;
@@ -60,6 +64,11 @@ public class Matches_Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matches__profile);
         mAuth = FirebaseAuth.getInstance();
+
+        Date c = Calendar.getInstance().getTime();
+
+        SimpleDateFormat df = new SimpleDateFormat("dd_MMM_yyyy");
+        formattedDate = df.format(c);
 
         //mAnswerOutput = (TextView) findViewById(R.id.Answer_output);
         //mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
@@ -149,7 +158,7 @@ public class Matches_Profile extends AppCompatActivity {
         final String yourstuff = youremail+"-"+yourUID;
 
         myRef= FirebaseDatabase.getInstance().getReference("Messages");
-        myRef.child(' '+ otheremail +'-' + youremail ).child("MessageList").push().setValue("New Message");
+        myRef.child(' '+ otheremail +'-' + youremail ).child("MessageList").push().setValue("New Message"+"-"+MyApplication.Global_Name+"-"+formattedDate);
 
         /*
 
