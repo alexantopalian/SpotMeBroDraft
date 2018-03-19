@@ -19,12 +19,12 @@
             android:orientation="horizontal">
 
             <TextView
-                android:text="Email : "
+                android:text="Name : "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/Email_output"
+                android:id="@+id/Name_output"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -36,12 +36,31 @@
             android:orientation="horizontal">
 
             <TextView
-                android:text="Name : "
+                android:text="Email : "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/Name_output"
+                android:id="@+id/Email_output"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="Gender : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/Gender_output"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

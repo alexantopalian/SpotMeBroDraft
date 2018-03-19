@@ -58,7 +58,7 @@ android:orientation="vertical">
         android:id="@+id/gotodelete"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Done With Removing Conversations"
+        android:text="Done Editing"
         android:onClick="GoToDelete"/>
 
 </LinearLayout>
