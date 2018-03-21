@@ -90,8 +90,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="50"
                     android:ems="10"
-                    android:text=""
-                    android:textAlignment="viewStart" />
+                    android:text="" />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
@@ -123,6 +122,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="50"
                     android:ems="10"
+                    android:inputType="textPassword"
                     android:text="" />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
