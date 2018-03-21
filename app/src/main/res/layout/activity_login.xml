@@ -53,7 +53,7 @@
                     android:layout_marginBottom="12dp"
                     android:layout_marginTop="4dp"
                     android:onClick="Signup_Button_Clicked"
-                    android:text="Make a new account today!"
+                    android:text="Sign up!"
                     android:visibility="visible" />
 
                 <Button
