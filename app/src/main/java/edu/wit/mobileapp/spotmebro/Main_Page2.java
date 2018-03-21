@@ -153,6 +153,9 @@ public class Main_Page2 extends AppCompatActivity
             startActivity(new Intent(Main_Page2.this, ContactUs.class));
         }else if (id == R.id.Conversations)
         {
+            startActivity(new Intent(Main_Page2.this, Help.class));
+        }else if (id == R.id.Help)
+        {
             startActivity(new Intent(Main_Page2.this, Conversations.class));
         } else if (id == R.id.SignOut)
         {

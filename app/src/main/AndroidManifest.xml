@@ -38,7 +38,8 @@
         <activity android:name=".ContactUs" />
         <activity android:name=".Conversations" />
         <activity android:name=".Messages" />
-        <activity android:name=".DeleteConversations"></activity>
+        <activity android:name=".DeleteConversations" />
+        <activity android:name=".Help"></activity>
     </application>
 
 </manifest>

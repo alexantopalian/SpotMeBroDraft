@@ -29,6 +29,11 @@
     <item android:title="Communicate">
         <menu>
             <item
+                android:id="@+id/Help"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Help" />
+
+            <item
                 android:id="@+id/ContactUs"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Contact Us" />
