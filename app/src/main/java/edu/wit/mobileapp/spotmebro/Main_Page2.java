@@ -139,25 +139,32 @@ public class Main_Page2 extends AppCompatActivity
         if (id == R.id.Matches)
         {
             startActivity(new Intent(Main_Page2.this, Matches_Page.class));
-        } else if (id == R.id.PreferenceEditor)
+        }
+        else if (id == R.id.PreferenceEditor)
         {
             startActivity(new Intent(Main_Page2.this, PreferenceEditor.class));
-        } else if (id == R.id.Profile)
+        }
+        else if (id == R.id.Profile)
         {
             startActivity(new Intent(Main_Page2.this, User_Profile.class));
-        } else if (id == R.id.DateAdder)
+        }
+        else if (id == R.id.DateAdder)
         {
             startActivity(new Intent(Main_Page2.this, Date_Adder.class));
-        } else if (id == R.id.ContactUs)
+        }
+        else if (id == R.id.ContactUs)
         {
             startActivity(new Intent(Main_Page2.this, ContactUs.class));
-        }else if (id == R.id.Conversations)
-        {
-            startActivity(new Intent(Main_Page2.this, Help.class));
-        }else if (id == R.id.Help)
+        }
+        else if (id == R.id.Conversations)
         {
             startActivity(new Intent(Main_Page2.this, Conversations.class));
-        } else if (id == R.id.SignOut)
+        }
+        else if (id == R.id.Help)
+        {
+            startActivity(new Intent(Main_Page2.this, Help.class));
+        }
+        else if (id == R.id.SignOut)
         {
             mAuth = FirebaseAuth.getInstance();
             mAuth.signOut();
