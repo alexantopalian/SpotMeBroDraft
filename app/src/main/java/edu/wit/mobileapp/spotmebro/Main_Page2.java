@@ -71,6 +71,9 @@ public class Main_Page2 extends AppCompatActivity
         //mAuth.signOut();
         String tempUser = "";
         final String user = mAuth.getCurrentUser().getUid().toString();
+        //mAuth.getCurrentUser().getUid().toString();
+        //mAuth.getCurrentUser().getEmail().toString();
+        //mAuth.signOut();
         //mUidNav = findViewById(R.id.UIDNavTex);
         //mUidNav.append(user);
 

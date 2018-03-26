@@ -75,8 +75,7 @@ public class Messages extends AppCompatActivity {
 
         Date c = Calendar.getInstance().getTime();
 
-        SimpleDateFormat df = new SimpleDateFormat("dd_MMM_yyyy");
-        formattedDate = df.format(c);
+
 
 
         conversationID1 = conversation + "-" + youremail;
@@ -178,6 +177,7 @@ public class Messages extends AppCompatActivity {
     }
 
     public void addMessage(View view) {
+        formattedDate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
         medittext = (EditText) findViewById(R.id.newmessage);
         myRef.push().setValue(medittext.getText().toString()+"-"+MyApplication.Global_Name+"-"+formattedDate);
     }

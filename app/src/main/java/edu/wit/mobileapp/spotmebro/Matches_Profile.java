@@ -67,8 +67,8 @@ public class Matches_Profile extends AppCompatActivity {
 
         Date c = Calendar.getInstance().getTime();
 
-        SimpleDateFormat df = new SimpleDateFormat("dd_MMM_yyyy");
-        formattedDate = df.format(c);
+        formattedDate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+
 
         //mAnswerOutput = (TextView) findViewById(R.id.Answer_output);
         //mAvailabilityOutput = (TextView) findViewById(R.id.Availability_output);
