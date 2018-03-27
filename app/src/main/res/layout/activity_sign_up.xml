@@ -138,8 +138,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Passwords must be a minimum of six characters"
-                android:textSize="9dp"/>
+                android:text="Passwords must be a minimum of six characters!"
+                android:textColor="@color/colorAccent"
+                android:textSize="10sp" />
 
 
         </LinearLayout>
