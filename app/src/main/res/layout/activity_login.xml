@@ -57,8 +57,6 @@
                     android:id="@+id/Goto_Signup_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginTop="4dp"
                     android:onClick="Signup_Button_Clicked"
                     android:text="Sign up!"
                     android:visibility="visible" />
@@ -73,10 +71,6 @@
                     android:text="Reset Password"
                     android:visibility="visible" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                     />
         </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
