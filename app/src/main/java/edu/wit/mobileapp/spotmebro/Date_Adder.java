@@ -165,7 +165,7 @@ public class Date_Adder extends AppCompatActivity {
                 listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
                 {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        if (temp != ", ") {
+                        if (temp != ",") {
 
 
                             String timeset = (listview.getItemAtPosition(position)).toString();
@@ -234,7 +234,7 @@ public class Date_Adder extends AppCompatActivity {
                             myRef = FirebaseDatabase.getInstance().getReference("").child(Day).child(Time).child(UID);
                             myRef.removeValue();
 
-                            temp = temp.replace(("," + timeset), "");
+                            temp = temp.replace(( timeset+","), "");
                             myRef = FirebaseDatabase.getInstance().getReference("Users").child(UID).child("Availability");
                             myRef.setValue(temp);
 
@@ -393,7 +393,7 @@ public class Date_Adder extends AppCompatActivity {
 
                 }
 
-                if (availabilities.contains("," + Day + " " + FinalTime + " " + AMPM + " "))
+                if (availabilities.contains(  Day + " " + FinalTime + " " + AMPM + ", "))
                 {
                     Toast.makeText(Date_Adder.this, "Already an added availability", Toast.LENGTH_LONG).show();
                 }
@@ -402,7 +402,7 @@ public class Date_Adder extends AppCompatActivity {
                     mavailability.child("Email").setValue(email);
                     mavailability.child("Gender").setValue(MyApplication.Global_Gender);
                     mavailability.child("Style").setValue(MyApplication.Global_Style);
-                    availabilities = availabilities + "," + Day + " " + FinalTime + " " + AMPM + " ";
+                    availabilities = availabilities + Day + " " + FinalTime + " " + AMPM + ", ";
                     myUser.setValue(availabilities);
                 }
             }

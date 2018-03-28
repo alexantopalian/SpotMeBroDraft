@@ -158,7 +158,7 @@ public class Matches_Profile extends AppCompatActivity {
         final String yourstuff = youremail+"-"+yourUID;
 
         myRef= FirebaseDatabase.getInstance().getReference("Messages");
-        myRef.child(' '+ otheremail +'-' + youremail ).child("MessageList").push().setValue("Started A Conversation"+"-"+MyApplication.Global_Name+"-"+formattedDate);
+        myRef.child(otheremail +'-' + youremail ).child("MessageList").push().setValue("Started A Conversation"+"-"+MyApplication.Global_Name+"-"+formattedDate);
 
         /*
 

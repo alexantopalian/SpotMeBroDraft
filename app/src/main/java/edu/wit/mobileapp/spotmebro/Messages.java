@@ -67,7 +67,7 @@ public class Messages extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         String youremail = MyApplication.Global_Name.toString();
-        conversation = " ";
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             conversation = extras.getString("conversation");
