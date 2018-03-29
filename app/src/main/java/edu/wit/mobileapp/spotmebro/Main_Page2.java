@@ -147,6 +147,10 @@ public class Main_Page2 extends AppCompatActivity
         {
             startActivity(new Intent(Main_Page2.this, PreferenceEditor.class));
         }
+        else if (id == R.id.ProfileEditor)
+        {
+            startActivity(new Intent(Main_Page2.this, ProfileEditor.class));
+        }
         else if (id == R.id.Profile)
         {
             startActivity(new Intent(Main_Page2.this, User_Profile.class));

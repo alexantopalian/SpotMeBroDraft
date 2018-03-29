@@ -11,13 +11,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="List of Matching Users!"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <ListView
             android:id="@+id/newListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?android:attr/colorEdgeEffect"
+            android:entries="@color/colorAccent"
             tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="56dp"
-            />
+            tools:layout_editor_absoluteY="56dp" />
 
 
         <LinearLayout

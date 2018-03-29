@@ -13,6 +13,10 @@
             android:icon="@drawable/spotmebroflex"
             android:title="Edit Your Preferences" />
         <item
+            android:id="@+id/ProfileEditor"
+            android:icon="@drawable/spotmebroflex"
+            android:title="Edit Your Profile" />
+        <item
             android:id="@+id/Profile"
             android:icon="@drawable/spotmebroflex"
             android:title="Your Profile" />
