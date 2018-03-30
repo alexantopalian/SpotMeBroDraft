@@ -5,12 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.wit.mobileapp.spotmebro.Help">
-    
-    
+
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="HELP GUIDE"
-        />
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to find matches?"
+            android:onClick="b1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to add availabilities?"
+            android:onClick="b2"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to remove availabilities?"
+            android:onClick="b3"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to edit preferences?"
+            android:onClick="b4"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to edit profile information?"
+            android:onClick="b5"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to create a conversation?"
+            android:onClick="b6"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to delete a conversation?"
+            android:onClick="b7"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What if I forgot my password?"
+            android:onClick="b8"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:onClick="b9"/>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:paddingTop="10dp"
+            android:id="@+id/step1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="viewStart"
+            android:textSize="16sp" />
+
+        <TextView
+            android:paddingTop="10dp"
+            android:id="@+id/step2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="viewStart"
+            android:textSize="16sp" />
+
+        <TextView
+            android:paddingTop="10dp"
+            android:id="@+id/step3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="viewStart"
+            android:textSize="16sp" />
+
+        <TextView
+            android:paddingTop="10dp"
+            android:id="@+id/step4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="viewStart"
+            android:textSize="16sp" />
+
+        <TextView
+            android:paddingTop="10dp"
+            android:id="@+id/step5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="viewStart"
+            android:textSize="16sp" />
+
+        <TextView
+            android:paddingTop="10dp"
+            android:id="@+id/step6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="viewStart"
+            android:textSize="16sp" />
+
+
+       <Button
+           android:paddingTop="10dp"
+           android:id="@+id/confirm_add_button"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="I'm ready!"/>
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
