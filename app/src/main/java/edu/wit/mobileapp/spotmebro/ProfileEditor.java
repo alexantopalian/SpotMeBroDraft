@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,7 +26,10 @@ public class ProfileEditor extends AppCompatActivity {
     private Spinner mPref_gender_input;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("");
+    DatabaseReference myRef1 = database.getReference("");
+    DatabaseReference myRef2 = database.getReference("");
     private FirebaseAuth mAuth;
+    private String uourName;
     private ArrayList<String> AllTimes;
     private boolean isthere;
 
@@ -50,6 +55,7 @@ public class ProfileEditor extends AppCompatActivity {
             {
 
                 String names = dataSnapshot.child("Name").getValue().toString();
+                uourName = names;
                 String pref_gend = dataSnapshot.child("Gender").getValue().toString();
                 mName_input.setText(names);
                 mPref_gender_input.setPrompt(pref_gend);
@@ -70,13 +76,11 @@ public class ProfileEditor extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         final String user = mAuth.getCurrentUser().getUid().toString();
 
-
-
         myRef = FirebaseDatabase.getInstance().getReference("Users");
         // set listener to grab users preferences.
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange (DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
                     try
@@ -97,8 +101,34 @@ public class ProfileEditor extends AppCompatActivity {
                     Toast.makeText(ProfileEditor.this, "Name is already used", Toast.LENGTH_LONG).show();
                 }
                 else {
+                    myRef2 = FirebaseDatabase.getInstance().getReference("Messages");
+                    myRef2.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot)
+                        {
+                            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                String messagename = ds.getKey().toString();
+                                String[] names = messagename.split("-");
+                                if (names[0].equalsIgnoreCase(MyApplication.Global_Name) || names[1].equalsIgnoreCase(MyApplication.Global_Name)) {
+                                    myRef1 = FirebaseDatabase.getInstance().getReference("Messages").child(ds.getKey().toString());
+                                    myRef1.removeValue();
+                                }
+                            }
+
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+
+                    });
                     myRef.child(user).child("Gender").setValue(mPref_gender_input.getSelectedItem().toString());
                     myRef.child(user).child("Name").setValue(mName_input.getText().toString());
+
+
                 }
             }
 
@@ -109,10 +139,13 @@ public class ProfileEditor extends AppCompatActivity {
         });
 
 
+
+
     }
 
     public void gotoBacktoMain(View view)
     {
         startActivity(new Intent(ProfileEditor.this, Main_Page2.class));
+
     }
 }

@@ -82,7 +82,7 @@ public class Main_Page2 extends AppCompatActivity
 
         myRef = FirebaseDatabase.getInstance().getReference("Users").child(user);
         // set listener to grab users preferences.
-        myRef.addValueEventListener(new ValueEventListener()
+        myRef.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)

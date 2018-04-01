@@ -12,6 +12,7 @@
         android:orientation="vertical"
         >
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,6 +21,15 @@
             android:text="Update your Profile!"
             android:textColor="@color/colorAccent"
             android:textSize="32dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="24dp"
+            android:text="If you change your name, all of your previous conversations will be deleted!"
+            android:textColor="@color/colorAccent"
+            android:textSize="28dp" />
 
 
         <LinearLayout
