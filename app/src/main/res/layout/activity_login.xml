@@ -32,6 +32,7 @@
                     app:passwordToggleDrawable="@drawable/password_toggle"
                     app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/colorAccent">
+
                         <EditText
                             android:id="@+id/User_Password"
                             android:layout_width="match_parent"
@@ -39,7 +40,8 @@
                             android:layout_marginTop="8dp"
                             android:hint="Password"
                             android:inputType="textPassword"
-                            android:textSize="22sp"/>
+                            android:textSize="22sp"
+                            android:typeface="normal" />
                 </android.support.design.widget.TextInputLayout>
 
                 <Button

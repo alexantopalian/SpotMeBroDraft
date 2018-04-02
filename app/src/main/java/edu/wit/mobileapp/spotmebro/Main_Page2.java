@@ -43,6 +43,7 @@ public class Main_Page2 extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__page2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //mAuth.signOut();
 
 
         //setSupportActionBar(toolbar);
@@ -87,10 +88,17 @@ public class Main_Page2 extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                MyApplication.Global_Name = dataSnapshot.child("Name").getValue().toString();
-                MyApplication.Global_Gender = dataSnapshot.child("Gender").getValue().toString();
-                MyApplication.Global_Style = dataSnapshot.child("Preferences").child("Style").getValue().toString();
-                MyApplication.Global_Preffered_Gender = dataSnapshot.child("Preferences").child("Preferred_Gender").getValue().toString();
+                try{
+                    MyApplication.Global_Name = dataSnapshot.child("Name").getValue().toString();
+                    MyApplication.Global_Gender = dataSnapshot.child("Gender").getValue().toString();
+                    MyApplication.Global_Style = dataSnapshot.child("Preferences").child("Style").getValue().toString();
+                    MyApplication.Global_Preffered_Gender = dataSnapshot.child("Preferences").child("Preferred_Gender").getValue().toString();
+
+                }
+                catch(NullPointerException e)
+                {
+
+                }
 
             }
             @Override
